@@ -156,6 +156,7 @@ namespace Calculator
             this.btnC.TabIndex = 6;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = false;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btn7
             // 
@@ -170,6 +171,7 @@ namespace Calculator
             this.btn7.TabIndex = 7;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = false;
+            this.btn7.Click += new System.EventHandler(this.num_Click);
             // 
             // btn4
             // 
@@ -184,6 +186,7 @@ namespace Calculator
             this.btn4.TabIndex = 8;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = false;
+            this.btn4.Click += new System.EventHandler(this.num_Click);
             // 
             // btn1
             // 
@@ -198,6 +201,7 @@ namespace Calculator
             this.btn1.TabIndex = 9;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
+            this.btn1.Click += new System.EventHandler(this.num_Click);
             // 
             // btn0
             // 
@@ -212,6 +216,7 @@ namespace Calculator
             this.btn0.TabIndex = 10;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = false;
+            this.btn0.Click += new System.EventHandler(this.num_Click);
             // 
             // btnCe
             // 
@@ -240,6 +245,7 @@ namespace Calculator
             this.btn8.TabIndex = 12;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = false;
+            this.btn8.Click += new System.EventHandler(this.num_Click);
             // 
             // btn5
             // 
@@ -254,6 +260,7 @@ namespace Calculator
             this.btn5.TabIndex = 13;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = false;
+            this.btn5.Click += new System.EventHandler(this.num_Click);
             // 
             // btn2
             // 
@@ -268,6 +275,7 @@ namespace Calculator
             this.btn2.TabIndex = 14;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = false;
+            this.btn2.Click += new System.EventHandler(this.num_Click);
             // 
             // btnDel
             // 
@@ -296,6 +304,7 @@ namespace Calculator
             this.btn9.TabIndex = 16;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = false;
+            this.btn9.Click += new System.EventHandler(this.num_Click);
             // 
             // btn6
             // 
@@ -310,6 +319,7 @@ namespace Calculator
             this.btn6.TabIndex = 17;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = false;
+            this.btn6.Click += new System.EventHandler(this.num_Click);
             // 
             // btn3
             // 
@@ -324,6 +334,7 @@ namespace Calculator
             this.btn3.TabIndex = 18;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = false;
+            this.btn3.Click += new System.EventHandler(this.num_Click);
             // 
             // btnDecimal
             // 
@@ -338,6 +349,7 @@ namespace Calculator
             this.btnDecimal.TabIndex = 19;
             this.btnDecimal.Text = ".";
             this.btnDecimal.UseVisualStyleBackColor = false;
+            this.btnDecimal.Click += new System.EventHandler(this.num_Click);
             // 
             // btnDivide
             // 
@@ -352,6 +364,7 @@ namespace Calculator
             this.btnDivide.TabIndex = 20;
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = false;
+            this.btnDivide.Click += new System.EventHandler(this.operators_Click);
             // 
             // btnMultiply
             // 
@@ -366,6 +379,7 @@ namespace Calculator
             this.btnMultiply.TabIndex = 21;
             this.btnMultiply.Text = "x";
             this.btnMultiply.UseVisualStyleBackColor = false;
+            this.btnMultiply.Click += new System.EventHandler(this.operators_Click);
             // 
             // btnSubtract
             // 
@@ -380,6 +394,7 @@ namespace Calculator
             this.btnSubtract.TabIndex = 22;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = false;
+            this.btnSubtract.Click += new System.EventHandler(this.operators_Click);
             // 
             // btnAdd
             // 
@@ -394,6 +409,7 @@ namespace Calculator
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.operators_Click);
             // 
             // btnEquals
             // 
@@ -408,6 +424,7 @@ namespace Calculator
             this.btnEquals.TabIndex = 24;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = false;
+            this.btnEquals.Click += new System.EventHandler(this.operators_Click);
             // 
             // txtboxDisplay
             // 
@@ -422,6 +439,7 @@ namespace Calculator
             this.txtboxDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtboxDisplay.Size = new System.Drawing.Size(594, 56);
             this.txtboxDisplay.TabIndex = 26;
+            this.txtboxDisplay.Text = "0";
             // 
             // txtboxExpression
             // 

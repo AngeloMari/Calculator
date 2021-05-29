@@ -21,5 +21,25 @@ namespace Calculator
         {
             Application.Exit();
         }
+
+        private void num_Click(object sender, EventArgs e)
+        {
+            if (txtboxDisplay.Text == "0")
+            {
+                txtboxDisplay.Clear();
+            }
+            Button number = (Button)sender;
+            txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
+        }
+
+        private void operators_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            txtboxDisplay.Clear();
+        }
     }
 }
