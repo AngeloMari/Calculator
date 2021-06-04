@@ -30,16 +30,24 @@ namespace Calculator
             }
             Button number = (Button)sender;
             txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
+            txtboxExpression.Text = txtboxDisplay.Text;
         }
 
         private void operators_Click(object sender, EventArgs e)
         {
-
+            Button operate = (Button)sender;
+            txtboxDisplay.Text = txtboxDisplay.Text + operate.Text;
+            txtboxExpression.Text = txtboxDisplay.Text;
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Clear();
+            txtboxDisplay.Text = "0";
+        }
+
+        private void btnCe_Click(object sender, EventArgs e)
+        {
+            txtboxDisplay.Text = "0";
         }
     }
 }

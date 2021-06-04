@@ -231,6 +231,7 @@ namespace Calculator
             this.btnCe.TabIndex = 11;
             this.btnCe.Text = "CE";
             this.btnCe.UseVisualStyleBackColor = false;
+            this.btnCe.Click += new System.EventHandler(this.btnCe_Click);
             // 
             // btn8
             // 
@@ -445,13 +446,12 @@ namespace Calculator
             // 
             this.txtboxExpression.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.txtboxExpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtboxExpression.ForeColor = System.Drawing.Color.White;
+            this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxExpression.ForeColor = System.Drawing.Color.Silver;
             this.txtboxExpression.Location = new System.Drawing.Point(54, 43);
             this.txtboxExpression.Multiline = true;
             this.txtboxExpression.Name = "txtboxExpression";
             this.txtboxExpression.ReadOnly = true;
-            this.txtboxExpression.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtboxExpression.Size = new System.Drawing.Size(594, 41);
             this.txtboxExpression.TabIndex = 27;
             // 
@@ -459,7 +459,7 @@ namespace Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(139)))), ((int)(((byte)(140)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 500);
             this.Controls.Add(this.txtboxExpression);
             this.Controls.Add(this.txtboxDisplay);
