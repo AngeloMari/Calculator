@@ -24,13 +24,25 @@ namespace Calculator
 
         private void num_Click(object sender, EventArgs e)
         {
-            if (txtboxDisplay.Text == "0")
+            if (txtboxDisplay.Text == "∅")
             {
                 txtboxDisplay.Clear();
+                Button number = (Button)sender;
+                txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
+                txtboxExpression.Text = txtboxDisplay.Text;
             }
-            Button number = (Button)sender;
-            txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
-            txtboxExpression.Text = txtboxDisplay.Text;
+            else if (txtboxDisplay.Text == ".")
+            {
+                Button number = (Button)sender;
+                txtboxDisplay.Text = "0" + txtboxDisplay.Text + number.Text;
+                txtboxExpression.Text = txtboxDisplay.Text;
+            }
+            else
+            {
+                Button number = (Button)sender;
+                txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
+                txtboxExpression.Text = txtboxDisplay.Text;
+            }
         }
 
         private void operators_Click(object sender, EventArgs e)
@@ -42,12 +54,13 @@ namespace Calculator
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text = "0";
+            txtboxDisplay.Text = "∅";
+            txtboxExpression.Clear();
         }
 
         private void btnCe_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text = "0";
+            txtboxDisplay.Text = "∅";
         }
     }
 }

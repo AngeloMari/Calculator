@@ -440,7 +440,7 @@ namespace Calculator
             this.txtboxDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtboxDisplay.Size = new System.Drawing.Size(594, 56);
             this.txtboxDisplay.TabIndex = 26;
-            this.txtboxDisplay.Text = "0";
+            this.txtboxDisplay.Text = "∅";
             // 
             // txtboxExpression
             // 
