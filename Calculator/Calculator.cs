@@ -62,5 +62,21 @@ namespace Calculator
         {
             txtboxDisplay.Text = "∅";
         }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            string del = txtboxDisplay.Text;
+
+            if (del.Length > 1)
+            {
+                del = del.Substring(0, del.Length - 1);
+            }
+            else
+            {
+                del = "∅";
+            }
+
+            txtboxDisplay.Text = del;
+        }
     }
 }
