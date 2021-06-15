@@ -426,7 +426,7 @@ namespace Calculator
             this.btnEquals.TabIndex = 24;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = false;
-            this.btnEquals.Click += new System.EventHandler(this.operators_Click);
+            this.btnEquals.Click += new System.EventHandler(this.equals_Click);
             // 
             // txtboxDisplay
             // 
@@ -439,6 +439,7 @@ namespace Calculator
             this.txtboxDisplay.Name = "txtboxDisplay";
             this.txtboxDisplay.ReadOnly = true;
             this.txtboxDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtboxDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtboxDisplay.Size = new System.Drawing.Size(594, 56);
             this.txtboxDisplay.TabIndex = 26;
             this.txtboxDisplay.Text = "∅";
