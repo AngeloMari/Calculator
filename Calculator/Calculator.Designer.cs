@@ -351,6 +351,7 @@ namespace Calculator
             this.btnDecimal.TabIndex = 19;
             this.btnDecimal.Text = ".";
             this.btnDecimal.UseVisualStyleBackColor = false;
+            this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
             // 
             // btnDivide
             // 

@@ -28,7 +28,7 @@ namespace Calculator
 
         private void btnNum_Click(object sender, EventArgs e)
         {//To display what number was pressed
-            if ((txtboxResult.Text == "∅") || (isOperatorPressed))
+            if ((txtboxResult.Text == "∅") || (txtboxResult.Text == "0") || (isOperatorPressed))
             {
                 txtboxResult.Clear();
             }
@@ -36,19 +36,24 @@ namespace Calculator
             txtboxResult.Text += number.Text;
             isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.
             //txtboxExpression.Text = txtboxResult.Text;
+        }
 
-            //else if (txtboxResult.Text == ".")
-            //{
-            //    Button number = (Button)sender;
-            //    txtboxResult.Text = "0" + txtboxResult.Text + number.Text;
-            //    //txtboxExpression.Text = txtboxResult.Text;
-            //}
-            //else
-            //{
-            //    Button number = (Button)sender;
-            //    txtboxResult.Text += number.Text;
-            //   // txtboxExpression.Text = txtboxResult.Text;
-            //}
+        private void btnDecimal_Click(object sender, EventArgs e)
+        {
+            txtboxResult.Clear();
+            if (!txtboxResult.Text.Contains("."))
+            {
+                if ((txtboxResult.Text == "") || (isOperatorPressed))
+                {
+                    txtboxResult.Clear();
+                    txtboxResult.Text = "0" + "." + txtboxResult.Text;
+                }
+                else if (txtboxResult.Text != "∅")
+                {
+                    txtboxResult.Text += ".";
+                }
+            }
+            isOperatorPressed = false;
         }
 
         private void btnOperators_Click(object sender, EventArgs e)
