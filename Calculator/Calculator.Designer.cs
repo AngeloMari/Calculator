@@ -456,6 +456,7 @@ namespace Calculator
             this.txtboxExpression.ReadOnly = true;
             this.txtboxExpression.Size = new System.Drawing.Size(594, 41);
             this.txtboxExpression.TabIndex = 27;
+            this.txtboxExpression.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Calculator
             // 

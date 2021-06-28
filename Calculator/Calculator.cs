@@ -35,7 +35,6 @@ namespace Calculator
             Button number = (Button)sender;
             txtboxResult.Text += number.Text;
             isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.
-            //txtboxExpression.Text = txtboxResult.Text;
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
@@ -65,14 +64,14 @@ namespace Calculator
             operand_1 = Convert.ToDouble(txtboxResult.Text);
             operators = operate.Text;
             isOperatorPressed = true;
-            //txtboxExpression.Text += operate.Text;
+            txtboxExpression.Text = operand_1 + " " + operators;
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {//To clear the text box
             txtboxResult.Text = "∅";
             operand_1 = 0;
-           // txtboxExpression.Clear();
+            txtboxExpression.Clear();
         }
 
         private void btnCe_Click(object sender, EventArgs e)
@@ -98,6 +97,7 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
+            txtboxExpression.Clear();
                 switch (operators)
             {
                 case "x":
