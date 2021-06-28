@@ -31,10 +31,12 @@ namespace Calculator
             if ((txtboxResult.Text == "∅") || (isOperatorPressed))
             {
                 txtboxResult.Clear();
-                Button number = (Button)sender;
-                txtboxResult.Text += number.Text;
-                //txtboxExpression.Text = txtboxResult.Text;
             }
+            Button number = (Button)sender;
+            txtboxResult.Text += number.Text;
+            isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.
+            //txtboxExpression.Text = txtboxResult.Text;
+
             //else if (txtboxResult.Text == ".")
             //{
             //    Button number = (Button)sender;
