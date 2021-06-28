@@ -40,18 +40,21 @@ namespace Calculator
 
         private void btnDecimal_Click(object sender, EventArgs e)
         {
-            txtboxResult.Clear();
-            if (!txtboxResult.Text.Contains("."))
+            if ((txtboxResult.Text == "∅") || (isOperatorPressed))
             {
-                if ((txtboxResult.Text == "") || (isOperatorPressed))
+                txtboxResult.Clear();
+                if (!txtboxResult.Text.Contains("."))
                 {
-                    txtboxResult.Clear();
-                    txtboxResult.Text = "0" + "." + txtboxResult.Text;
+                    if (txtboxResult.Text == "")
+                    {
+                        txtboxResult.Clear();
+                        txtboxResult.Text = "0" + "." + txtboxResult.Text;
+                    }
                 }
-                else if (txtboxResult.Text != "∅")
-                {
-                    txtboxResult.Text += ".";
-                }
+            }
+            else if (txtboxResult.Text != "")
+            {
+                txtboxResult.Text += ".";
             }
             isOperatorPressed = false;
         }
