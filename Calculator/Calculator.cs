@@ -12,8 +12,9 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
-        Double operand_1;
-        String operators;
+        Double operand_1 = 0;
+        String operators = "";
+        bool isOperatorPressed = false;
 
         public Calculator()
         {
@@ -25,52 +26,53 @@ namespace Calculator
             Application.Exit();
         }
 
-        private void num_Click(object sender, EventArgs e)
+        private void btnNum_Click(object sender, EventArgs e)
         {//To display what number was pressed
-            if (txtboxDisplay.Text == "∅")
+            if ((txtboxResult.Text == "∅") || (isOperatorPressed))
             {
-                txtboxDisplay.Clear();
+                txtboxResult.Clear();
                 Button number = (Button)sender;
-                txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
-                txtboxExpression.Text = txtboxDisplay.Text;
+                txtboxResult.Text += number.Text;
+                //txtboxExpression.Text = txtboxResult.Text;
             }
-            else if (txtboxDisplay.Text == ".")
-            {
-                Button number = (Button)sender;
-                txtboxDisplay.Text = "0" + txtboxDisplay.Text + number.Text;
-                txtboxExpression.Text = txtboxDisplay.Text;
-            }
-            else
-            {
-                Button number = (Button)sender;
-                txtboxDisplay.Text = txtboxDisplay.Text + number.Text;
-                txtboxExpression.Text = txtboxDisplay.Text;
-            }
+            //else if (txtboxResult.Text == ".")
+            //{
+            //    Button number = (Button)sender;
+            //    txtboxResult.Text = "0" + txtboxResult.Text + number.Text;
+            //    //txtboxExpression.Text = txtboxResult.Text;
+            //}
+            //else
+            //{
+            //    Button number = (Button)sender;
+            //    txtboxResult.Text += number.Text;
+            //   // txtboxExpression.Text = txtboxResult.Text;
+            //}
         }
 
-        private void operators_Click(object sender, EventArgs e)
+        private void btnOperators_Click(object sender, EventArgs e)
         {//For the operators
             Button operate = (Button)sender;
-            operand_1 = Convert.ToDouble(txtboxDisplay.Text);
-            txtboxDisplay.Text = "";
+            operand_1 = Convert.ToDouble(txtboxResult.Text);
             operators = operate.Text;
-            txtboxExpression.Text = txtboxExpression.Text + operate.Text;
+            isOperatorPressed = true;
+            //txtboxExpression.Text += operate.Text;
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {//To clear the text box
-            txtboxDisplay.Text = "∅";
-            txtboxExpression.Clear();
+            txtboxResult.Text = "∅";
+            operand_1 = 0;
+           // txtboxExpression.Clear();
         }
 
         private void btnCe_Click(object sender, EventArgs e)
         {//To clear entry
-            txtboxDisplay.Text = "∅";
+            txtboxResult.Text = "∅";
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {//To delete one character
-            string del = txtboxDisplay.Text;
+            string del = txtboxResult.Text;
 
             if (del.Length > 1)
             {
@@ -81,12 +83,27 @@ namespace Calculator
                 del = "∅";
             }
 
-            txtboxDisplay.Text = del;
+            txtboxResult.Text = del;
         }
 
-        private void equals_Click(object sender, EventArgs e)
+        private void btnEquals_Click(object sender, EventArgs e)
         {
-
+                switch (operators)
+            {
+                case "x":
+                    txtboxResult.Text = (operand_1 * Convert.ToDouble(txtboxResult.Text)).ToString();
+                    break;
+                case "÷":
+                    txtboxResult.Text = (operand_1 / Convert.ToDouble(txtboxResult.Text)).ToString();
+                    break;
+                case "+":
+                    txtboxResult.Text = (operand_1 + Convert.ToDouble(txtboxResult.Text)).ToString();
+                    break;
+                case "-":
+                    txtboxResult.Text = (operand_1 - Convert.ToDouble(txtboxResult.Text)).ToString();
+                    break;
+            }
+            isOperatorPressed = false;
         }
     }
 }
