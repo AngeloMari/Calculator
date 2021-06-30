@@ -214,5 +214,22 @@ namespace Calculator
                 return;
             }
         }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            else if (operators == "")
+            {
+                txtboxResult.Text = "0";
+                txtboxExpression.Text = txtboxResult.Text;
+            }
+            else
+            {
+                txtboxResult.Text = (operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
+            }
+        }
     }
 }
