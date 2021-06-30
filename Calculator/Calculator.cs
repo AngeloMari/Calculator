@@ -114,13 +114,6 @@ namespace Calculator
             txtboxResult.Text = del;
         }
 
-        private void txtboxResult_TextChanged(object sender, EventArgs e)
-        {
-            this.txtboxResult.Multiline = true;
-            this.txtboxResult.WordWrap = false;
-            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-        }
-
         private void btnEquals_Click(object sender, EventArgs e)
         {
             txtboxExpression.Clear();
@@ -137,9 +130,6 @@ namespace Calculator
                     break;
                 case "-":
                     txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "±":
-                    txtboxResult.Text = (operand * -1).ToString();
                     break;
                 default:
                     break;
@@ -200,6 +190,11 @@ namespace Calculator
                 txtboxExpression.Text = "√(" + operand + ")";
                 txtboxResult.Text = (Math.Sqrt(operand).ToString());
             }
+        }
+
+        private void btnPlusminus_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

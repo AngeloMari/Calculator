@@ -53,13 +53,13 @@ namespace Calculator
             this.btnSubtract = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
-            this.txtboxResult = new System.Windows.Forms.TextBox();
             this.txtboxExpression = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.txtboxResult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -90,7 +90,7 @@ namespace Calculator
             this.btnPlusminus.TabIndex = 2;
             this.btnPlusminus.Text = "±";
             this.btnPlusminus.UseVisualStyleBackColor = false;
-            this.btnPlusminus.Click += new System.EventHandler(this.btnOperators_Click);
+            this.btnPlusminus.Click += new System.EventHandler(this.btnPlusminus_Click);
             // 
             // btnSqrt
             // 
@@ -420,24 +420,6 @@ namespace Calculator
             this.btnEquals.UseVisualStyleBackColor = false;
             this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
             // 
-            // txtboxResult
-            // 
-            this.txtboxResult.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtboxResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtboxResult.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtboxResult.ForeColor = System.Drawing.Color.White;
-            this.txtboxResult.Location = new System.Drawing.Point(54, 80);
-            this.txtboxResult.MaxLength = 65534;
-            this.txtboxResult.Multiline = true;
-            this.txtboxResult.Name = "txtboxResult";
-            this.txtboxResult.ReadOnly = true;
-            this.txtboxResult.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtboxResult.Size = new System.Drawing.Size(594, 76);
-            this.txtboxResult.TabIndex = 26;
-            this.txtboxResult.Text = "∅";
-            this.txtboxResult.TextChanged += new System.EventHandler(this.txtboxResult_TextChanged);
-            // 
             // txtboxExpression
             // 
             this.txtboxExpression.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -448,9 +430,9 @@ namespace Calculator
             this.txtboxExpression.Multiline = true;
             this.txtboxExpression.Name = "txtboxExpression";
             this.txtboxExpression.ReadOnly = true;
-            this.txtboxExpression.Size = new System.Drawing.Size(594, 41);
+            this.txtboxExpression.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtboxExpression.Size = new System.Drawing.Size(594, 51);
             this.txtboxExpression.TabIndex = 27;
-            this.txtboxExpression.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button2
             // 
@@ -522,19 +504,37 @@ namespace Calculator
             this.button6.Text = "MS";
             this.button6.UseVisualStyleBackColor = false;
             // 
+            // txtboxResult
+            // 
+            this.txtboxResult.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtboxResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtboxResult.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxResult.ForeColor = System.Drawing.Color.White;
+            this.txtboxResult.Location = new System.Drawing.Point(54, 79);
+            this.txtboxResult.MaxLength = 65534;
+            this.txtboxResult.Multiline = true;
+            this.txtboxResult.Name = "txtboxResult";
+            this.txtboxResult.ReadOnly = true;
+            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtboxResult.Size = new System.Drawing.Size(594, 69);
+            this.txtboxResult.TabIndex = 34;
+            this.txtboxResult.Text = "∅";
+            this.txtboxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtboxResult.WordWrap = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 523);
+            this.Controls.Add(this.txtboxResult);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtboxExpression);
-            this.Controls.Add(this.txtboxResult);
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSubtract);
@@ -595,12 +595,12 @@ namespace Calculator
         private System.Windows.Forms.Button btnSubtract;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEquals;
-        private System.Windows.Forms.TextBox txtboxResult;
         private System.Windows.Forms.TextBox txtboxExpression;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtboxResult;
     }
 }
