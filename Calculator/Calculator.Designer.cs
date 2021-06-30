@@ -424,7 +424,7 @@ namespace Calculator
             // 
             this.txtboxExpression.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.txtboxExpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxExpression.ForeColor = System.Drawing.Color.Silver;
             this.txtboxExpression.Location = new System.Drawing.Point(54, 43);
             this.txtboxExpression.Multiline = true;
@@ -433,6 +433,7 @@ namespace Calculator
             this.txtboxExpression.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtboxExpression.Size = new System.Drawing.Size(594, 51);
             this.txtboxExpression.TabIndex = 27;
+            this.txtboxExpression.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button2
             // 
@@ -510,13 +511,13 @@ namespace Calculator
             this.txtboxResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxResult.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxResult.ForeColor = System.Drawing.Color.White;
-            this.txtboxResult.Location = new System.Drawing.Point(54, 79);
+            this.txtboxResult.Location = new System.Drawing.Point(54, 93);
             this.txtboxResult.MaxLength = 65534;
             this.txtboxResult.Multiline = true;
             this.txtboxResult.Name = "txtboxResult";
             this.txtboxResult.ReadOnly = true;
             this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtboxResult.Size = new System.Drawing.Size(594, 69);
+            this.txtboxResult.Size = new System.Drawing.Size(594, 55);
             this.txtboxResult.TabIndex = 34;
             this.txtboxResult.Text = "∅";
             this.txtboxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

@@ -116,7 +116,6 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            txtboxExpression.Clear();
                 switch (operators)
             {
                 case "x":
@@ -194,7 +193,26 @@ namespace Calculator
 
         private void btnPlusminus_Click(object sender, EventArgs e)
         {
-           
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            if (txtboxResult.Text != "0")
+            {
+                if (txtboxResult.Text.Contains("-"))
+                {
+                    txtboxResult.Text = txtboxResult.Text.Trim('-');
+                }
+                else
+                {
+                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * -1).ToString();
+                }
+                txtboxExpression.Text = txtboxResult.Text;
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
