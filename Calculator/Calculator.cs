@@ -231,5 +231,23 @@ namespace Calculator
                 txtboxResult.Text = (operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
             }
         }
+
+        private void btn1x_Click(object sender, EventArgs e)
+        {
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            else if (txtboxResult.Text == "0")
+            {
+                txtboxResult.Text = "Cannot divide by zero";
+                txtboxExpression.Text = "reciproc(0)";
+            }
+            else
+            {
+                txtboxExpression.Text = "reciproc(" + txtboxResult.Text + ")";
+                txtboxResult.Text = (1 / Convert.ToDouble(txtboxResult.Text)).ToString();
+            }
+        }
     }
 }
