@@ -14,6 +14,7 @@ namespace Calculator
     {
         Double operand = 0;
         String operators = "";
+        String squareroot = "";
         bool isOperatorPressed = false;
 
         public Calculator()
@@ -81,7 +82,7 @@ namespace Calculator
                 operators = operate.Text;
                 isOperatorPressed = true;
                 txtboxExpression.Text = operand + " " + operators;
-                txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+                txtboxResult.Text = "0";
             }
         }
 
@@ -113,6 +114,13 @@ namespace Calculator
             txtboxResult.Text = del;
         }
 
+        private void txtboxResult_TextChanged(object sender, EventArgs e)
+        {
+            this.txtboxResult.Multiline = true;
+            this.txtboxResult.WordWrap = false;
+            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+        }
+
         private void btnEquals_Click(object sender, EventArgs e)
         {
             txtboxExpression.Clear();
@@ -130,25 +138,68 @@ namespace Calculator
                 case "-":
                     txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
                     break;
-                case "√":
-                    txtboxResult.Text = (Math.Sqrt(operand).ToString());
+                case "±":
+                    txtboxResult.Text = (operand * -1).ToString();
                     break;
-                //case "±":
-                //    txtboxResult.Text = (operand * -1).ToString();
-                //    break;
-                //default:
-                //    break;
+                default:
+                    break;
+            }
+
+                switch (squareroot)
+            {
+                case "x":
+                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
+                    break;
+                case "÷":
+                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) / Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
+                    break;
+                case "+":
+                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) + Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
+                    break;
+                case "-":
+                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) - Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
+                    break;
+                default:
+                    break;
             }
 
             operand = Convert.ToDouble(txtboxResult.Text);
             operators = "";
         }
 
-        private void txtboxResult_TextChanged(object sender, EventArgs e)
+        private void btnSqrt_Click(object sender, EventArgs e)
         {
-            this.txtboxResult.Multiline = true;
-            this.txtboxResult.WordWrap = false;
-            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            Button sqrt = (Button)sender;
+
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            else if (operand != 0)
+            {
+                if (isOperatorPressed)
+                {
+                    isOperatorPressed = true;
+                    squareroot = sqrt.Text;
+                    txtboxExpression.Text = squareroot + "(" + operand + ")";
+                    btnEquals.PerformClick();
+                }
+                else
+                {
+                    isOperatorPressed = true;
+                    squareroot = sqrt.Text;
+                    txtboxExpression.Text = squareroot + "(" + operand + ")";
+                    txtboxResult.Text = (Math.Sqrt(operand).ToString());
+                }
+            }
+            else
+            {
+                operand = Convert.ToDouble(txtboxResult.Text);
+                operators = sqrt.Text;
+                isOperatorPressed = true;
+                txtboxExpression.Text = "√(" + operand + ")";
+                txtboxResult.Text = (Math.Sqrt(operand).ToString());
+            }
         }
     }
 }

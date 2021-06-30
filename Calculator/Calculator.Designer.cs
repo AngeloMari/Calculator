@@ -105,7 +105,7 @@ namespace Calculator
             this.btnSqrt.TabIndex = 3;
             this.btnSqrt.Text = "√";
             this.btnSqrt.UseVisualStyleBackColor = false;
-            this.btnSqrt.Click += new System.EventHandler(this.btnOperators_Click);
+            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
             // 
             // btnPercent
             // 
