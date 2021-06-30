@@ -66,11 +66,23 @@ namespace Calculator
         private void btnOperators_Click(object sender, EventArgs e)
         {//For the operators
             Button operate = (Button)sender;
-            operand = Convert.ToDouble(txtboxResult.Text);
-            operators = operate.Text;
-            isOperatorPressed = true;
-            txtboxExpression.Text = operand + " " + operators;
-            txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+
+            if (operand != 0)
+            {
+                btnEquals.PerformClick();
+                isOperatorPressed = true;
+                operators = operate.Text;
+                txtboxExpression.Text = operand + " " + operators;
+                txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+            }
+            else
+            {
+                operand = Convert.ToDouble(txtboxResult.Text);
+                operators = operate.Text;
+                isOperatorPressed = true;
+                txtboxExpression.Text = operand + " " + operators;
+                txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+            }
         }
 
         private void btnC_Click(object sender, EventArgs e)
@@ -118,10 +130,18 @@ namespace Calculator
                 case "-":
                     txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
                     break;
-                default:
+                case "√":
+                    txtboxResult.Text = (Math.Sqrt(operand).ToString());
                     break;
+                //case "±":
+                //    txtboxResult.Text = (operand * -1).ToString();
+                //    break;
+                //default:
+                //    break;
             }
-            isOperatorPressed = false;
+
+            operand = Convert.ToDouble(txtboxResult.Text);
+            operators = "";
         }
     }
 }

@@ -84,12 +84,13 @@ namespace Calculator
             this.btnPlusminus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlusminus.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPlusminus.ForeColor = System.Drawing.Color.White;
-            this.btnPlusminus.Location = new System.Drawing.Point(179, 417);
+            this.btnPlusminus.Location = new System.Drawing.Point(179, 436);
             this.btnPlusminus.Name = "btnPlusminus";
             this.btnPlusminus.Size = new System.Drawing.Size(110, 60);
             this.btnPlusminus.TabIndex = 2;
             this.btnPlusminus.Text = "±";
             this.btnPlusminus.UseVisualStyleBackColor = false;
+            this.btnPlusminus.Click += new System.EventHandler(this.btnOperators_Click);
             // 
             // btnSqrt
             // 
@@ -98,12 +99,13 @@ namespace Calculator
             this.btnSqrt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSqrt.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSqrt.ForeColor = System.Drawing.Color.White;
-            this.btnSqrt.Location = new System.Drawing.Point(54, 358);
+            this.btnSqrt.Location = new System.Drawing.Point(54, 377);
             this.btnSqrt.Name = "btnSqrt";
             this.btnSqrt.Size = new System.Drawing.Size(110, 35);
             this.btnSqrt.TabIndex = 3;
             this.btnSqrt.Text = "√";
             this.btnSqrt.UseVisualStyleBackColor = false;
+            this.btnSqrt.Click += new System.EventHandler(this.btnOperators_Click);
             // 
             // btnPercent
             // 
@@ -112,7 +114,7 @@ namespace Calculator
             this.btnPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPercent.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPercent.ForeColor = System.Drawing.Color.White;
-            this.btnPercent.Location = new System.Drawing.Point(54, 399);
+            this.btnPercent.Location = new System.Drawing.Point(54, 418);
             this.btnPercent.Name = "btnPercent";
             this.btnPercent.Size = new System.Drawing.Size(110, 35);
             this.btnPercent.TabIndex = 4;
@@ -126,7 +128,7 @@ namespace Calculator
             this.btn1x.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1x.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn1x.ForeColor = System.Drawing.Color.White;
-            this.btn1x.Location = new System.Drawing.Point(54, 440);
+            this.btn1x.Location = new System.Drawing.Point(54, 459);
             this.btn1x.Name = "btn1x";
             this.btn1x.Size = new System.Drawing.Size(110, 37);
             this.btn1x.TabIndex = 5;
@@ -140,7 +142,7 @@ namespace Calculator
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnC.ForeColor = System.Drawing.Color.White;
-            this.btnC.Location = new System.Drawing.Point(179, 153);
+            this.btnC.Location = new System.Drawing.Point(179, 172);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(110, 60);
             this.btnC.TabIndex = 6;
@@ -155,7 +157,7 @@ namespace Calculator
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn7.ForeColor = System.Drawing.Color.White;
-            this.btn7.Location = new System.Drawing.Point(179, 219);
+            this.btn7.Location = new System.Drawing.Point(179, 238);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(110, 60);
             this.btn7.TabIndex = 7;
@@ -170,7 +172,7 @@ namespace Calculator
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn4.ForeColor = System.Drawing.Color.White;
-            this.btn4.Location = new System.Drawing.Point(179, 285);
+            this.btn4.Location = new System.Drawing.Point(179, 304);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(110, 60);
             this.btn4.TabIndex = 8;
@@ -185,7 +187,7 @@ namespace Calculator
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn1.ForeColor = System.Drawing.Color.White;
-            this.btn1.Location = new System.Drawing.Point(179, 351);
+            this.btn1.Location = new System.Drawing.Point(179, 370);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(110, 60);
             this.btn1.TabIndex = 9;
@@ -200,7 +202,7 @@ namespace Calculator
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn0.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Location = new System.Drawing.Point(295, 417);
+            this.btn0.Location = new System.Drawing.Point(295, 436);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(110, 60);
             this.btn0.TabIndex = 10;
@@ -215,7 +217,7 @@ namespace Calculator
             this.btnCe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCe.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCe.ForeColor = System.Drawing.Color.White;
-            this.btnCe.Location = new System.Drawing.Point(295, 153);
+            this.btnCe.Location = new System.Drawing.Point(295, 172);
             this.btnCe.Name = "btnCe";
             this.btnCe.Size = new System.Drawing.Size(110, 60);
             this.btnCe.TabIndex = 11;
@@ -230,7 +232,7 @@ namespace Calculator
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn8.ForeColor = System.Drawing.Color.White;
-            this.btn8.Location = new System.Drawing.Point(295, 219);
+            this.btn8.Location = new System.Drawing.Point(295, 238);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(110, 60);
             this.btn8.TabIndex = 12;
@@ -245,7 +247,7 @@ namespace Calculator
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn5.ForeColor = System.Drawing.Color.White;
-            this.btn5.Location = new System.Drawing.Point(295, 285);
+            this.btn5.Location = new System.Drawing.Point(295, 304);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(110, 60);
             this.btn5.TabIndex = 13;
@@ -260,7 +262,7 @@ namespace Calculator
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn2.ForeColor = System.Drawing.Color.White;
-            this.btn2.Location = new System.Drawing.Point(295, 351);
+            this.btn2.Location = new System.Drawing.Point(295, 370);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(110, 60);
             this.btn2.TabIndex = 14;
@@ -275,7 +277,7 @@ namespace Calculator
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(411, 153);
+            this.btnDel.Location = new System.Drawing.Point(411, 172);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(110, 60);
             this.btnDel.TabIndex = 15;
@@ -290,7 +292,7 @@ namespace Calculator
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn9.ForeColor = System.Drawing.Color.White;
-            this.btn9.Location = new System.Drawing.Point(411, 219);
+            this.btn9.Location = new System.Drawing.Point(411, 238);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(110, 60);
             this.btn9.TabIndex = 16;
@@ -305,7 +307,7 @@ namespace Calculator
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn6.ForeColor = System.Drawing.Color.White;
-            this.btn6.Location = new System.Drawing.Point(411, 285);
+            this.btn6.Location = new System.Drawing.Point(411, 304);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(110, 60);
             this.btn6.TabIndex = 17;
@@ -320,7 +322,7 @@ namespace Calculator
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn3.ForeColor = System.Drawing.Color.White;
-            this.btn3.Location = new System.Drawing.Point(411, 351);
+            this.btn3.Location = new System.Drawing.Point(411, 370);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(110, 60);
             this.btn3.TabIndex = 18;
@@ -335,7 +337,7 @@ namespace Calculator
             this.btnDecimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecimal.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDecimal.ForeColor = System.Drawing.Color.White;
-            this.btnDecimal.Location = new System.Drawing.Point(411, 417);
+            this.btnDecimal.Location = new System.Drawing.Point(411, 436);
             this.btnDecimal.Name = "btnDecimal";
             this.btnDecimal.Size = new System.Drawing.Size(110, 60);
             this.btnDecimal.TabIndex = 19;
@@ -350,7 +352,7 @@ namespace Calculator
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDivide.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDivide.ForeColor = System.Drawing.Color.White;
-            this.btnDivide.Location = new System.Drawing.Point(538, 153);
+            this.btnDivide.Location = new System.Drawing.Point(538, 172);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(110, 60);
             this.btnDivide.TabIndex = 20;
@@ -365,7 +367,7 @@ namespace Calculator
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiply.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMultiply.ForeColor = System.Drawing.Color.White;
-            this.btnMultiply.Location = new System.Drawing.Point(538, 219);
+            this.btnMultiply.Location = new System.Drawing.Point(538, 238);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(110, 60);
             this.btnMultiply.TabIndex = 21;
@@ -380,7 +382,7 @@ namespace Calculator
             this.btnSubtract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubtract.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSubtract.ForeColor = System.Drawing.Color.White;
-            this.btnSubtract.Location = new System.Drawing.Point(538, 285);
+            this.btnSubtract.Location = new System.Drawing.Point(538, 304);
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(110, 60);
             this.btnSubtract.TabIndex = 22;
@@ -395,7 +397,7 @@ namespace Calculator
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(538, 351);
+            this.btnAdd.Location = new System.Drawing.Point(538, 370);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 60);
             this.btnAdd.TabIndex = 23;
@@ -410,7 +412,7 @@ namespace Calculator
             this.btnEquals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEquals.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEquals.ForeColor = System.Drawing.Color.White;
-            this.btnEquals.Location = new System.Drawing.Point(538, 417);
+            this.btnEquals.Location = new System.Drawing.Point(538, 436);
             this.btnEquals.Name = "btnEquals";
             this.btnEquals.Size = new System.Drawing.Size(110, 60);
             this.btnEquals.TabIndex = 24;
@@ -425,12 +427,13 @@ namespace Calculator
             this.txtboxResult.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxResult.ForeColor = System.Drawing.Color.White;
             this.txtboxResult.Location = new System.Drawing.Point(54, 80);
+            this.txtboxResult.MaxLength = 65534;
             this.txtboxResult.Multiline = true;
             this.txtboxResult.Name = "txtboxResult";
             this.txtboxResult.ReadOnly = true;
             this.txtboxResult.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtboxResult.Size = new System.Drawing.Size(594, 56);
+            this.txtboxResult.Size = new System.Drawing.Size(594, 76);
             this.txtboxResult.TabIndex = 26;
             this.txtboxResult.Text = "∅";
             // 
@@ -455,7 +458,7 @@ namespace Calculator
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(54, 317);
+            this.button2.Location = new System.Drawing.Point(54, 336);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 35);
             this.button2.TabIndex = 29;
@@ -469,7 +472,7 @@ namespace Calculator
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(54, 194);
+            this.button3.Location = new System.Drawing.Point(54, 213);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 35);
             this.button3.TabIndex = 30;
@@ -483,7 +486,7 @@ namespace Calculator
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(54, 153);
+            this.button4.Location = new System.Drawing.Point(54, 172);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 35);
             this.button4.TabIndex = 31;
@@ -497,7 +500,7 @@ namespace Calculator
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(54, 276);
+            this.button5.Location = new System.Drawing.Point(54, 295);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 35);
             this.button5.TabIndex = 32;
@@ -511,7 +514,7 @@ namespace Calculator
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(54, 235);
+            this.button6.Location = new System.Drawing.Point(54, 254);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(110, 35);
             this.button6.TabIndex = 33;
@@ -523,7 +526,7 @@ namespace Calculator
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(700, 500);
+            this.ClientSize = new System.Drawing.Size(700, 523);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
