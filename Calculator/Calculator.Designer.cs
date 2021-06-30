@@ -436,6 +436,7 @@ namespace Calculator
             this.txtboxResult.Size = new System.Drawing.Size(594, 76);
             this.txtboxResult.TabIndex = 26;
             this.txtboxResult.Text = "∅";
+            this.txtboxResult.TextChanged += new System.EventHandler(this.txtboxResult_TextChanged);
             // 
             // txtboxExpression
             // 

@@ -143,5 +143,12 @@ namespace Calculator
             operand = Convert.ToDouble(txtboxResult.Text);
             operators = "";
         }
+
+        private void txtboxResult_TextChanged(object sender, EventArgs e)
+        {
+            this.txtboxResult.Multiline = true;
+            this.txtboxResult.WordWrap = false;
+            this.txtboxResult.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+        }
     }
 }
