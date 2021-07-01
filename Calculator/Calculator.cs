@@ -68,8 +68,11 @@ namespace Calculator
         private void btnOperators_Click(object sender, EventArgs e)
         {//For the operators
             Button operate = (Button)sender;
-
-            if (operand != 0)
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            else if (operand != 0)
             {
                 btnEquals.PerformClick();
                 isOperatorPressed = true;
@@ -117,7 +120,11 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-                switch (operators)
+            if (txtboxResult.Text == "∅")
+            {
+                return;
+            }
+            switch (operators)
             {
                 case "x":
                     txtboxResult.Text = (operand * Convert.ToDouble(txtboxResult.Text)).ToString();
