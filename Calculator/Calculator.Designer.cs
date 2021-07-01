@@ -68,6 +68,7 @@ namespace Calculator
             this.btnHelp = new System.Windows.Forms.Button();
             this.lstboxView = new System.Windows.Forms.CheckedListBox();
             this.lstboxEdit = new System.Windows.Forms.CheckedListBox();
+            this.lstboxHelp = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -591,6 +592,7 @@ namespace Calculator
             this.btnEdit.TabIndex = 38;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnHelp
             // 
@@ -605,6 +607,7 @@ namespace Calculator
             this.btnHelp.TabIndex = 39;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // lstboxView
             // 
@@ -614,11 +617,10 @@ namespace Calculator
             this.lstboxView.ForeColor = System.Drawing.Color.White;
             this.lstboxView.FormattingEnabled = true;
             this.lstboxView.Items.AddRange(new object[] {
-            "Dark Mode",
             "Light Mode"});
             this.lstboxView.Location = new System.Drawing.Point(-1, 23);
             this.lstboxView.Name = "lstboxView";
-            this.lstboxView.Size = new System.Drawing.Size(120, 34);
+            this.lstboxView.Size = new System.Drawing.Size(120, 17);
             this.lstboxView.TabIndex = 40;
             this.lstboxView.Visible = false;
             // 
@@ -639,12 +641,29 @@ namespace Calculator
             this.lstboxEdit.TabIndex = 42;
             this.lstboxEdit.Visible = false;
             // 
+            // lstboxHelp
+            // 
+            this.lstboxHelp.BackColor = System.Drawing.Color.Gray;
+            this.lstboxHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstboxHelp.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstboxHelp.ForeColor = System.Drawing.Color.White;
+            this.lstboxHelp.FormattingEnabled = true;
+            this.lstboxHelp.Items.AddRange(new object[] {
+            "FAQ",
+            "About Calculator"});
+            this.lstboxHelp.Location = new System.Drawing.Point(93, 23);
+            this.lstboxHelp.Name = "lstboxHelp";
+            this.lstboxHelp.Size = new System.Drawing.Size(130, 34);
+            this.lstboxHelp.TabIndex = 43;
+            this.lstboxHelp.Visible = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 523);
+            this.Controls.Add(this.lstboxHelp);
             this.Controls.Add(this.lstboxEdit);
             this.Controls.Add(this.lstboxView);
             this.Controls.Add(this.btnHelp);
@@ -734,5 +753,6 @@ namespace Calculator
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.CheckedListBox lstboxView;
         private System.Windows.Forms.CheckedListBox lstboxEdit;
+        private System.Windows.Forms.CheckedListBox lstboxHelp;
     }
 }

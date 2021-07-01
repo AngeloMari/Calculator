@@ -18,6 +18,8 @@ namespace Calculator
         String memory = "";
         bool isOperatorPressed = false;
         bool isViewPressed = false;
+        bool isEditPressed = false;
+        bool isHelpPressed = false;
 
         public Calculator()
         {
@@ -327,6 +329,34 @@ namespace Calculator
             {
                 lstboxView.Visible = true;
                 isViewPressed = true;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (isEditPressed)
+            {
+                lstboxEdit.Visible = false;
+                isEditPressed = false;
+            }
+            else
+            {
+                lstboxEdit.Visible = true;
+                isEditPressed = true;
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            if (isHelpPressed)
+            {
+                lstboxHelp.Visible = false;
+                isHelpPressed = false;
+            }
+            else
+            {
+                lstboxHelp.Visible = true;
+                isHelpPressed = true;
             }
         }
     }
