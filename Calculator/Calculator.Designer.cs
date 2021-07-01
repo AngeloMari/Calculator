@@ -29,6 +29,7 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculator));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPlusminus = new System.Windows.Forms.Button();
             this.btnSqrt = new System.Windows.Forms.Button();
@@ -62,12 +63,16 @@ namespace Calculator
             this.txtboxResult = new System.Windows.Forms.TextBox();
             this.txtboxM = new System.Windows.Forms.TextBox();
             this.txtboxMemory = new System.Windows.Forms.TextBox();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.lstboxView = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.IndianRed;
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
@@ -430,7 +435,7 @@ namespace Calculator
             this.txtboxExpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxExpression.ForeColor = System.Drawing.Color.Silver;
-            this.txtboxExpression.Location = new System.Drawing.Point(54, 43);
+            this.txtboxExpression.Location = new System.Drawing.Point(54, 45);
             this.txtboxExpression.Multiline = true;
             this.txtboxExpression.Name = "txtboxExpression";
             this.txtboxExpression.ReadOnly = true;
@@ -557,12 +562,75 @@ namespace Calculator
             this.txtboxMemory.Text = "0";
             this.txtboxMemory.Visible = false;
             // 
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnView.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnView.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnView.ForeColor = System.Drawing.Color.White;
+            this.btnView.Location = new System.Drawing.Point(-1, 0);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(52, 23);
+            this.btnView.TabIndex = 37;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(44, 0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(52, 23);
+            this.btnEdit.TabIndex = 38;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Verdana", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(93, 0);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(52, 23);
+            this.btnHelp.TabIndex = 39;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            // 
+            // lstboxView
+            // 
+            this.lstboxView.BackColor = System.Drawing.Color.Gray;
+            this.lstboxView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstboxView.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstboxView.ForeColor = System.Drawing.Color.White;
+            this.lstboxView.FormattingEnabled = true;
+            this.lstboxView.Items.AddRange(new object[] {
+            "Dark Mode",
+            "Light Mode"});
+            this.lstboxView.Location = new System.Drawing.Point(-1, 23);
+            this.lstboxView.Name = "lstboxView";
+            this.lstboxView.Size = new System.Drawing.Size(120, 34);
+            this.lstboxView.TabIndex = 40;
+            this.lstboxView.Visible = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 523);
+            this.Controls.Add(this.lstboxView);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.txtboxMemory);
             this.Controls.Add(this.txtboxM);
             this.Controls.Add(this.txtboxResult);
@@ -597,6 +665,7 @@ namespace Calculator
             this.Controls.Add(this.btnPlusminus);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 200);
             this.Name = "Calculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -641,5 +710,9 @@ namespace Calculator
         private System.Windows.Forms.TextBox txtboxResult;
         private System.Windows.Forms.TextBox txtboxM;
         private System.Windows.Forms.TextBox txtboxMemory;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.CheckedListBox lstboxView;
     }
 }

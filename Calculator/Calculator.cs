@@ -314,5 +314,10 @@ namespace Calculator
                     break;
             }
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            lstboxView.Visible = true;
+        }
     }
 }
