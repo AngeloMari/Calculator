@@ -54,12 +54,14 @@ namespace Calculator
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
             this.txtboxExpression = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnMminus = new System.Windows.Forms.Button();
+            this.btnMR = new System.Windows.Forms.Button();
+            this.btnMC = new System.Windows.Forms.Button();
+            this.btnMplus = new System.Windows.Forms.Button();
+            this.btnMS = new System.Windows.Forms.Button();
             this.txtboxResult = new System.Windows.Forms.TextBox();
+            this.txtboxM = new System.Windows.Forms.TextBox();
+            this.txtboxMemory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -437,75 +439,80 @@ namespace Calculator
             this.txtboxExpression.TabIndex = 27;
             this.txtboxExpression.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button2
+            // btnMminus
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(54, 336);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 35);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "M-";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMminus.BackColor = System.Drawing.Color.Gray;
+            this.btnMminus.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMminus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMminus.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMminus.ForeColor = System.Drawing.Color.White;
+            this.btnMminus.Location = new System.Drawing.Point(54, 336);
+            this.btnMminus.Name = "btnMminus";
+            this.btnMminus.Size = new System.Drawing.Size(110, 35);
+            this.btnMminus.TabIndex = 29;
+            this.btnMminus.Text = "M-";
+            this.btnMminus.UseVisualStyleBackColor = false;
+            this.btnMminus.Click += new System.EventHandler(this.btnM_Click);
             // 
-            // button3
+            // btnMR
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(54, 213);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 35);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "MR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnMR.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMR.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMR.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMR.ForeColor = System.Drawing.Color.White;
+            this.btnMR.Location = new System.Drawing.Point(54, 213);
+            this.btnMR.Name = "btnMR";
+            this.btnMR.Size = new System.Drawing.Size(110, 35);
+            this.btnMR.TabIndex = 30;
+            this.btnMR.Text = "MR";
+            this.btnMR.UseVisualStyleBackColor = false;
+            this.btnMR.Click += new System.EventHandler(this.btnM_Click);
             // 
-            // button4
+            // btnMC
             // 
-            this.button4.BackColor = System.Drawing.Color.Gray;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(54, 172);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 35);
-            this.button4.TabIndex = 31;
-            this.button4.Text = "MC";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMC.BackColor = System.Drawing.Color.Gray;
+            this.btnMC.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMC.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMC.ForeColor = System.Drawing.Color.White;
+            this.btnMC.Location = new System.Drawing.Point(54, 172);
+            this.btnMC.Name = "btnMC";
+            this.btnMC.Size = new System.Drawing.Size(110, 35);
+            this.btnMC.TabIndex = 31;
+            this.btnMC.Text = "MC";
+            this.btnMC.UseVisualStyleBackColor = false;
+            this.btnMC.Click += new System.EventHandler(this.btnM_Click);
             // 
-            // button5
+            // btnMplus
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(54, 295);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 35);
-            this.button5.TabIndex = 32;
-            this.button5.Text = "M+";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnMplus.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMplus.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMplus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMplus.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMplus.ForeColor = System.Drawing.Color.White;
+            this.btnMplus.Location = new System.Drawing.Point(54, 295);
+            this.btnMplus.Name = "btnMplus";
+            this.btnMplus.Size = new System.Drawing.Size(110, 35);
+            this.btnMplus.TabIndex = 32;
+            this.btnMplus.Text = "M+";
+            this.btnMplus.UseVisualStyleBackColor = false;
+            this.btnMplus.Click += new System.EventHandler(this.btnM_Click);
             // 
-            // button6
+            // btnMS
             // 
-            this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(54, 254);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(110, 35);
-            this.button6.TabIndex = 33;
-            this.button6.Text = "MS";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnMS.BackColor = System.Drawing.Color.Gray;
+            this.btnMS.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMS.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMS.ForeColor = System.Drawing.Color.White;
+            this.btnMS.Location = new System.Drawing.Point(54, 254);
+            this.btnMS.Name = "btnMS";
+            this.btnMS.Size = new System.Drawing.Size(110, 35);
+            this.btnMS.TabIndex = 33;
+            this.btnMS.Text = "MS";
+            this.btnMS.UseVisualStyleBackColor = false;
+            this.btnMS.Click += new System.EventHandler(this.btnM_Click);
             // 
             // txtboxResult
             // 
@@ -525,18 +532,43 @@ namespace Calculator
             this.txtboxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtboxResult.WordWrap = false;
             // 
+            // txtboxM
+            // 
+            this.txtboxM.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtboxM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtboxM.Location = new System.Drawing.Point(54, 125);
+            this.txtboxM.Name = "txtboxM";
+            this.txtboxM.ReadOnly = true;
+            this.txtboxM.Size = new System.Drawing.Size(110, 16);
+            this.txtboxM.TabIndex = 35;
+            // 
+            // txtboxMemory
+            // 
+            this.txtboxMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.txtboxMemory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtboxMemory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.txtboxMemory.Location = new System.Drawing.Point(54, 150);
+            this.txtboxMemory.Name = "txtboxMemory";
+            this.txtboxMemory.ReadOnly = true;
+            this.txtboxMemory.Size = new System.Drawing.Size(110, 16);
+            this.txtboxMemory.TabIndex = 36;
+            this.txtboxMemory.Text = "0";
+            this.txtboxMemory.Visible = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 523);
+            this.Controls.Add(this.txtboxMemory);
+            this.Controls.Add(this.txtboxM);
             this.Controls.Add(this.txtboxResult);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnMS);
+            this.Controls.Add(this.btnMplus);
+            this.Controls.Add(this.btnMC);
+            this.Controls.Add(this.btnMR);
+            this.Controls.Add(this.btnMminus);
             this.Controls.Add(this.txtboxExpression);
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnAdd);
@@ -599,11 +631,13 @@ namespace Calculator
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEquals;
         private System.Windows.Forms.TextBox txtboxExpression;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnMminus;
+        private System.Windows.Forms.Button btnMR;
+        private System.Windows.Forms.Button btnMC;
+        private System.Windows.Forms.Button btnMplus;
+        private System.Windows.Forms.Button btnMS;
         private System.Windows.Forms.TextBox txtboxResult;
+        private System.Windows.Forms.TextBox txtboxM;
+        private System.Windows.Forms.TextBox txtboxMemory;
     }
 }

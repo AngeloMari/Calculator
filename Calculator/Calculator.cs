@@ -15,6 +15,7 @@ namespace Calculator
         Double operand = 0;
         String operators = "";
         String squareroot = "";
+        String memory = "";
         bool isOperatorPressed = false;
 
         public Calculator()
@@ -247,6 +248,62 @@ namespace Calculator
             {
                 txtboxExpression.Text = "reciproc(" + txtboxResult.Text + ")";
                 txtboxResult.Text = (1 / Convert.ToDouble(txtboxResult.Text)).ToString();
+            }
+        }
+
+        private void btnM_Click(object sender, EventArgs e)
+        {
+            Button M = (Button)sender;
+            memory = M.Text;
+
+            switch (memory)
+            {
+                case "MC":
+                    txtboxM.Text = "";
+                    break;
+                case "MR":
+                    if (txtboxResult.Text == "∅")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        txtboxM.Text = "M";
+                    }
+                    break;
+                case "MS":
+                    if (txtboxResult.Text == "∅")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        txtboxM.Text = "M";
+                        txtboxMemory.Text = txtboxResult.Text;
+                    }
+                    break;
+                case "M+":
+                    if (txtboxResult.Text == "∅")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        txtboxM.Text = "M";
+                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) + Convert.ToDouble(txtboxResult.Text)).ToString();
+                    }
+                    break;
+                case "M-":
+                    if (txtboxResult.Text == "∅")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        txtboxM.Text = "M";
+                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) - Convert.ToDouble(txtboxResult.Text)).ToString();
+                    }
+                    break;
             }
         }
     }
