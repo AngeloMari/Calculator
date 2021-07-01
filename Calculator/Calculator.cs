@@ -269,6 +269,7 @@ namespace Calculator
                     else
                     {
                         txtboxM.Text = "M";
+                        txtboxResult.Text = txtboxMemory.Text;
                     }
                     break;
                 case "MS":
