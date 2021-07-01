@@ -17,6 +17,7 @@ namespace Calculator
         String squareroot = "";
         String memory = "";
         bool isOperatorPressed = false;
+        bool isViewPressed = false;
 
         public Calculator()
         {
@@ -317,7 +318,16 @@ namespace Calculator
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            lstboxView.Visible = true;
+            if (isViewPressed)
+            {
+                lstboxView.Visible = false;
+                isViewPressed = false;
+            }
+            else
+            {
+                lstboxView.Visible = true;
+                isViewPressed = true;
+            }
         }
     }
 }
