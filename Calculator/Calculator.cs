@@ -16,9 +16,11 @@ namespace Calculator
         Reciprocal oneXbtn = new();
         Percent percentbtn = new();
         PlusMinus plusMinus = new();
+        Decimal decimalbtn = new();
+        Equals equalbtn = new();
+        SquareRoot sqrtbtn = new();
         Double operand = 0;
         String operators = "";
-        String squareroot = "";
         bool isOperatorPressed = false;
         bool isViewPressed = false;
         bool isEditPressed = false;
@@ -46,29 +48,10 @@ namespace Calculator
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
-        {
-            if ((txtboxResult.Text.Contains(".")))
-            {
-                return;
-            }
-            else if ((txtboxResult.Text == "∅") || (isOperatorPressed))
-            {
-                txtboxResult.Clear();
-                if (!txtboxResult.Text.Contains("."))
-                {
-                    if (txtboxResult.Text == "")
-                    {
-                        txtboxResult.Clear();
-                        txtboxResult.Text = "0" + "." + txtboxResult.Text;
-                    }
-                }
-            }
-            else if (txtboxResult.Text != "")
-            {
-                txtboxResult.Text += ".";
-            }
-
-            isOperatorPressed = false;
+        {//DECIMAL IS STILL NOT WORKING
+            decimalbtn.txtboxResult = txtboxResult.Text;
+            decimalbtn.dot();
+            txtboxResult.Text = decimalbtn.txtboxResult;
         }
 
         private void btnOperators_Click(object sender, EventArgs e)
@@ -120,89 +103,19 @@ namespace Calculator
             {
                 del = "∅";
             }
-
             txtboxResult.Text = del;
         }
 
-        private void btnEquals_Click(object sender, EventArgs e)
-        {
-            if (txtboxResult.Text == "∅")
-            {
-                return;
-            }
-            switch (operators)
-            {
-                case "x":
-                    txtboxResult.Text = (operand * Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (operand / Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (operand + Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                default:
-                    break;
-            }
-
-                switch (squareroot)
-            {
-                case "x":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) / Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) + Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) - Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                default:
-                    break;
-            }
-
-            operand = Convert.ToDouble(txtboxResult.Text);
-            operators = "";
+        public void btnEquals_Click(object sender, EventArgs e)
+        {//EQUAL IS STILL NOT WORKING
+            equalbtn.txtboxResult = txtboxResult.Text;
+            equalbtn.equal();
+            txtboxResult.Text = equalbtn.txtboxResult;
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            Button sqrt = (Button)sender;
-
-            if (txtboxResult.Text == "∅")
-            {
-                return;
-            }
-            else if (operand != 0)
-            {
-                if (isOperatorPressed)
-                {
-                    isOperatorPressed = true;
-                    squareroot = sqrt.Text;
-                    txtboxExpression.Text = squareroot + "(" + operand + ")";
-                    btnEquals.PerformClick();
-                }
-                else
-                {
-                    isOperatorPressed = true;
-                    squareroot = sqrt.Text;
-                    txtboxExpression.Text = squareroot + "(" + operand + ")";
-                    txtboxResult.Text = (Math.Sqrt(operand).ToString());
-                }
-            }
-            else
-            {
-                operand = Convert.ToDouble(txtboxResult.Text);
-                operators = sqrt.Text;
-                isOperatorPressed = true;
-                txtboxExpression.Text = "√(" + operand + ")";
-                txtboxResult.Text = (Math.Sqrt(operand).ToString());
-            }
+            sqrtbtn.squareRoot();
         }
 
         private void btnPlusminus_Click(object sender, EventArgs e)
