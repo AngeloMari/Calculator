@@ -12,10 +12,10 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
+        Memories Mbtns = new();
         Double operand = 0;
         String operators = "";
         String squareroot = "";
-        String memory = "";
         bool isOperatorPressed = false;
         bool isViewPressed = false;
         bool isEditPressed = false;
@@ -264,58 +264,15 @@ namespace Calculator
         private void btnM_Click(object sender, EventArgs e)
         {
             Button M = (Button)sender;
-            memory = M.Text;
+            Mbtns.m = M.Text;
 
-            switch (memory)
-            {
-                case "MC":
-                    txtboxM.Text = "";
-                    break;
-                case "MR":
-                    if (txtboxResult.Text == "∅")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxResult.Text = txtboxMemory.Text;
-                    }
-                    break;
-                case "MS":
-                    if (txtboxResult.Text == "∅")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = txtboxResult.Text;
-                    }
-                    break;
-                case "M+":
-                    if (txtboxResult.Text == "∅")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) + Convert.ToDouble(txtboxResult.Text)).ToString();
-                    }
-                    break;
-                case "M-":
-                    if (txtboxResult.Text == "∅")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    }
-                    break;
-            }
+            Mbtns.txtboxM = txtboxM.Text;
+            Mbtns.txtboxMemory = txtboxMemory.Text;
+            Mbtns.txtboxResult = txtboxResult.Text;
+            Mbtns.Memory();
+            txtboxM.Text = Mbtns.txtboxM;
+            txtboxMemory.Text = Mbtns.txtboxMemory;
+            txtboxResult.Text = Mbtns.txtboxResult;
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -358,6 +315,11 @@ namespace Calculator
                 lstboxHelp.Visible = true;
                 isHelpPressed = true;
             }
+        }
+
+        private void lstboxHelp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

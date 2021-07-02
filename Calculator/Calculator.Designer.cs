@@ -437,7 +437,7 @@ namespace Calculator
             this.txtboxExpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxExpression.ForeColor = System.Drawing.Color.Silver;
-            this.txtboxExpression.Location = new System.Drawing.Point(54, 49);
+            this.txtboxExpression.Location = new System.Drawing.Point(54, 46);
             this.txtboxExpression.Multiline = true;
             this.txtboxExpression.Name = "txtboxExpression";
             this.txtboxExpression.ReadOnly = true;
@@ -656,6 +656,7 @@ namespace Calculator
             this.lstboxHelp.Size = new System.Drawing.Size(130, 34);
             this.lstboxHelp.TabIndex = 43;
             this.lstboxHelp.Visible = false;
+            this.lstboxHelp.SelectedIndexChanged += new System.EventHandler(this.lstboxHelp_SelectedIndexChanged);
             // 
             // Calculator
             // 
