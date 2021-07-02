@@ -14,6 +14,8 @@ namespace Calculator
     {
         Memories Mbtns = new();
         Reciprocal oneXbtn = new();
+        Percent percentbtn = new();
+        PlusMinus plusMinus = new();
         Double operand = 0;
         String operators = "";
         String squareroot = "";
@@ -205,43 +207,20 @@ namespace Calculator
 
         private void btnPlusminus_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
-            {
-                return;
-            }
-            if (txtboxResult.Text != "0")
-            {
-                if (txtboxResult.Text.Contains("-"))
-                {
-                    txtboxResult.Text = txtboxResult.Text.Trim('-');
-                }
-                else
-                {
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * -1).ToString();
-                }
-                txtboxExpression.Text = txtboxResult.Text;
-            }
-            else
-            {
-                return;
-            }
+            plusMinus.txtboxResult = txtboxResult.Text;
+            plusMinus.txtboxExpression = txtboxExpression.Text;
+            plusMinus.pm();
+            txtboxResult.Text = plusMinus.txtboxResult;
+            txtboxExpression.Text = plusMinus.txtboxResult;
         }
 
         private void btnPercent_Click(object sender, EventArgs e)
-        {
-            if (txtboxResult.Text == "∅")
-            {
-                return;
-            }
-            else if (operators == "")
-            {
-                txtboxResult.Text = "0";
-                txtboxExpression.Text = txtboxResult.Text;
-            }
-            else
-            {
-                txtboxResult.Text = (operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
-            }
+        {//STILL NOT WORKING PROPERLY
+            percentbtn.txtboxResult = txtboxResult.Text;
+            percentbtn.txtboxExpression = txtboxExpression.Text;
+            percentbtn.percent();
+            txtboxResult.Text = percentbtn.txtboxResult;
+            txtboxExpression.Text = percentbtn.txtboxExpression;
         }
 
         private void btn1x_Click(object sender, EventArgs e)
