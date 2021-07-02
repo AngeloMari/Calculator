@@ -13,6 +13,7 @@ namespace Calculator
     public partial class Calculator : Form
     {
         Memories Mbtns = new();
+        Reciprocal oneXbtn = new();
         Double operand = 0;
         String operators = "";
         String squareroot = "";
@@ -245,20 +246,11 @@ namespace Calculator
 
         private void btn1x_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
-            {
-                return;
-            }
-            else if (txtboxResult.Text == "0")
-            {
-                txtboxResult.Text = "Cannot divide by zero";
-                txtboxExpression.Text = "reciproc(0)";
-            }
-            else
-            {
-                txtboxExpression.Text = "reciproc(" + txtboxResult.Text + ")";
-                txtboxResult.Text = (1 / Convert.ToDouble(txtboxResult.Text)).ToString();
-            }
+            oneXbtn.txtboxResult = txtboxResult.Text;
+            oneXbtn.txtboxExpression = txtboxExpression.Text;
+            oneXbtn.reciproc();
+            txtboxResult.Text = oneXbtn.txtboxResult;
+            txtboxExpression.Text = oneXbtn.txtboxExpression;
         }
 
         private void btnM_Click(object sender, EventArgs e)
