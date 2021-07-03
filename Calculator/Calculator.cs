@@ -71,25 +71,33 @@ namespace Calculator
         private void btnOperators_Click(object sender, EventArgs e)
         {//For the operators
             Button operate = (Button)sender;
-            if (txtboxResult.Text == "∅")
+            if (!isOperatorPressed)
             {
-                return;
-            }
-            else if (operand != 0)
-            {
-                btnEquals.PerformClick();
-                isOperatorPressed = true;
-                operators = operate.Text;
-                txtboxExpression.Text = operand + " " + operators;
-                txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+                if (txtboxResult.Text == "∅")
+                {
+                    return;
+                }
+                else if (operand != 0)
+                {
+                    btnEquals.PerformClick();
+                    isOperatorPressed = true;
+                    operators = operate.Text;
+                    txtboxExpression.Text = operand + " " + operators;
+                    txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+                }
+                else
+                {
+                    operand = Convert.ToDouble(txtboxResult.Text);
+                    operators = operate.Text;
+                    isOperatorPressed = true;
+                    txtboxExpression.Text = operand + " " + operators;
+                    txtboxResult.Text = "0";
+                }
             }
             else
-            {
-                operand = Convert.ToDouble(txtboxResult.Text);
+            {//It allows the user to change the operator without having any errors.
                 operators = operate.Text;
-                isOperatorPressed = true;
                 txtboxExpression.Text = operand + " " + operators;
-                txtboxResult.Text = "0";
             }
         }
 
