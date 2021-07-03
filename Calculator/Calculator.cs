@@ -20,7 +20,6 @@ namespace Calculator
         bool isViewPressed = false;
         bool isEditPressed = false;
         bool isHelpPressed = false;
-
         public Calculator()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace Calculator
 
         private void btnNum_Click(object sender, EventArgs e)
         {//To display what number was pressed
-            if ((txtboxResult.Text == "∅") || (txtboxResult.Text == "0") || (isOperatorPressed))
+            if ((txtboxResult.Text.Equals("∅")) || (txtboxResult.Text.Equals("0")) || (isOperatorPressed))
             {
                 txtboxResult.Clear();
             }
@@ -43,28 +42,27 @@ namespace Calculator
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
-        {
+        {//For the decimal button
             if ((txtboxResult.Text.Contains(".")))
             {
-                return;
+                return; //to avoid exception error
             }
-            else if ((txtboxResult.Text == "∅") || (isOperatorPressed))
+            else if ((txtboxResult.Text.Equals("∅")) || (isOperatorPressed))
             {
                 txtboxResult.Clear();
-                if (!txtboxResult.Text.Contains("."))
+                if (!txtboxResult.Text.Contains(".")) //to add a the first decimal button for numbers < 1
                 {
-                    if (txtboxResult.Text == "")
+                    if (txtboxResult.Text.Equals(""))
                     {
                         txtboxResult.Clear();
                         txtboxResult.Text = "0" + "." + txtboxResult.Text;
                     }
                 }
             }
-            else if (txtboxResult.Text != "")
+            else if (txtboxResult.Text != "") //decimal button for numbers > 1
             {
                 txtboxResult.Text += ".";
             }
-
             isOperatorPressed = false;
         }
 
@@ -73,17 +71,17 @@ namespace Calculator
             Button operate = (Button)sender;
             if (!isOperatorPressed)
             {
-                if (txtboxResult.Text == "∅")
+                if (txtboxResult.Text.Equals("∅"))
                 {
                     return;
                 }
                 else if (operand != 0)
                 {
-                    btnEquals.PerformClick();
+                    btnEquals.PerformClick(); //It helps in appending new operand instead of clicking equal button every time.
                     isOperatorPressed = true;
                     operators = operate.Text;
                     txtboxExpression.Text = operand + " " + operators;
-                    txtboxResult.Text = "0"; // It fixed the bug when avoiding multiple decimal points.
+                    txtboxResult.Text = "0"; //It fixed the bug when avoiding multiple decimal points.
                 }
                 else
                 {
@@ -125,61 +123,61 @@ namespace Calculator
             {
                 del = "∅";
             }
-
             txtboxResult.Text = del;
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
+            if (txtboxResult.Text.Equals("∅"))
             {
                 return;
             }
-            switch (operators)
+            else
             {
-                case "x":
-                    txtboxResult.Text = (operand * Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (operand / Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (operand + Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                default:
-                    break;
-            }
+                switch (operators)
+                {//To find which operaion to be used.
+                    case "x":
+                        txtboxResult.Text = (operand * Convert.ToDouble(txtboxResult.Text)).ToString();
+                        break;
+                    case "÷":
+                        txtboxResult.Text = (operand / Convert.ToDouble(txtboxResult.Text)).ToString();
+                        break;
+                    case "+":
+                        txtboxResult.Text = (operand + Convert.ToDouble(txtboxResult.Text)).ToString();
+                        break;
+                    case "-":
+                        txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
+                        break;
+                    default:
+                        break;
+                }
 
                 switch (squareroot)
-            {
-                case "x":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) / Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) + Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) - Math.Sqrt(Convert.ToDouble(txtboxResult.Text))).ToString();
-                    break;
-                default:
-                    break;
+                {//To properly calculate square root depending on the chosen operator.
+                    case "x":
+                        txtboxResult.Text = (operand * (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                        break;
+                    case "÷":
+                        txtboxResult.Text = (operand / (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                        break;
+                    case "+":
+                        txtboxResult.Text = (operand + (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                        break;
+                    case "-":
+                        txtboxResult.Text = (operand - (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                        break;
+                    default:
+                        break;
+                }
             }
-
             operand = Convert.ToDouble(txtboxResult.Text);
             operators = "";
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            Button sqrt = (Button)sender;
-
-            if (txtboxResult.Text == "∅")
+            string sqrt = "√";
+            if (txtboxResult.Text.Equals("∅"))
             {
                 return;
             }
@@ -187,23 +185,20 @@ namespace Calculator
             {
                 if (isOperatorPressed)
                 {
-                    isOperatorPressed = true;
-                    squareroot = sqrt.Text;
-                    txtboxExpression.Text = squareroot + "(" + operand + ")";
                     btnEquals.PerformClick();
+                    isOperatorPressed = true;
+                    txtboxExpression.Text = sqrt + "(" + operand + ")";
                 }
                 else
                 {
                     isOperatorPressed = true;
-                    squareroot = sqrt.Text;
-                    txtboxExpression.Text = squareroot + "(" + operand + ")";
+                    txtboxExpression.Text = sqrt + "(" + operand + ")";
                     txtboxResult.Text = (Math.Sqrt(operand).ToString());
                 }
             }
             else
             {
                 operand = Convert.ToDouble(txtboxResult.Text);
-                operators = sqrt.Text;
                 isOperatorPressed = true;
                 txtboxExpression.Text = "√(" + operand + ")";
                 txtboxResult.Text = (Math.Sqrt(operand).ToString());
@@ -212,7 +207,7 @@ namespace Calculator
 
         private void btnPlusminus_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
+            if (txtboxResult.Text.Equals("∅"))
             {
                 return;
             }
@@ -236,28 +231,28 @@ namespace Calculator
 
         private void btnPercent_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
+            if (txtboxResult.Text.Equals("∅"))
             {
                 return;
             }
-            else if (operators == "")
+            else if (operators.Equals(""))
             {
                 txtboxResult.Text = "0";
                 txtboxExpression.Text = txtboxResult.Text;
             }
             else
             {
-                txtboxResult.Text = (operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
+                txtboxResult.Text = (operand * (operand * 0.01)).ToString();
             }
         }
 
         private void btn1x_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text == "∅")
+            if (txtboxResult.Text.Equals("∅"))
             {
                 return;
             }
-            else if (txtboxResult.Text == "0")
+            else if (txtboxResult.Text.Equals("0"))
             {
                 txtboxResult.Text = "Cannot divide by zero";
                 txtboxExpression.Text = "reciproc(0)";
@@ -280,7 +275,7 @@ namespace Calculator
                     txtboxM.Text = "";
                     break;
                 case "MR":
-                    if (txtboxResult.Text == "∅")
+                    if (txtboxMemory.Text.Equals("0"))
                     {
                         return;
                     }
@@ -291,18 +286,25 @@ namespace Calculator
                     }
                     break;
                 case "MS":
-                    if (txtboxResult.Text == "∅")
+                    if (txtboxResult.Text.Equals("∅"))
                     {
                         return;
                     }
                     else
                     {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = txtboxResult.Text;
+                        if (txtboxResult.Text.Equals("0"))
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            txtboxM.Text = "M";
+                            txtboxMemory.Text = txtboxResult.Text;
+                        }
                     }
                     break;
                 case "M+":
-                    if (txtboxResult.Text == "∅")
+                    if (txtboxResult.Text.Equals("∅"))
                     {
                         return;
                     }
@@ -313,7 +315,7 @@ namespace Calculator
                     }
                     break;
                 case "M-":
-                    if (txtboxResult.Text == "∅")
+                    if (txtboxResult.Text.Equals("∅"))
                     {
                         return;
                     }
