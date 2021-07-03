@@ -545,10 +545,10 @@ namespace Calculator
             this.txtboxM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxM.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxM.ForeColor = System.Drawing.Color.White;
-            this.txtboxM.Location = new System.Drawing.Point(63, 123);
+            this.txtboxM.Location = new System.Drawing.Point(54, 123);
             this.txtboxM.Name = "txtboxM";
             this.txtboxM.ReadOnly = true;
-            this.txtboxM.Size = new System.Drawing.Size(110, 25);
+            this.txtboxM.Size = new System.Drawing.Size(22, 25);
             this.txtboxM.TabIndex = 35;
             // 
             // txtboxMemory
