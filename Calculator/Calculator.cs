@@ -15,9 +15,9 @@ namespace Calculator
         Double operand = 0;
         Double sqrtOperand = 0;
         String operators = "";
-        String squareroot = "";
         String memory = "";
         bool isOperatorPressed = false;
+        bool isSqrtPressed = false;
         bool isViewPressed = false;
         bool isEditPressed = false;
         bool isHelpPressed = false;
@@ -100,13 +100,26 @@ namespace Calculator
             {
                 return;
             }
+            else if ((operators.Equals("÷")) && (txtboxResult.Text.Equals("0")))
+            {//because infinity is not a number, and it should not be the proper answer
+                txtboxResult.Text = "undefined";
+            }
             else
             {
-                operatorsSwitch();
-                squarerootSwitch();
+                if (isSqrtPressed)
+                {
+                    sqrtSwitch();
+                    isSqrtPressed = false; //it prevents the basic operation from being confused
+                    txtboxExpression.Text = sqrtOperand + " " + operators + " " + txtboxResult.Text;
+                }
+                else
+                {
+                    operatorsSwitch();
+                    txtboxExpression.Text = operand + " " + operators + " " + txtboxResult.Text;
+                }
+                operand = Convert.ToDouble(txtboxResult.Text);
+                operators = "";
             }
-            operand = Convert.ToDouble(txtboxResult.Text);
-            operators = "";
         }
 
         private void btnOperators_Click(object sender, EventArgs e)
@@ -123,16 +136,16 @@ namespace Calculator
                     btnEquals.PerformClick(); //It helps in appending new operand instead of clicking equal button every time.
                     isOperatorPressed = true;
                     operators = operate.Text;
-                    txtboxExpression.Text = operand + " " + operators;
                     txtboxResult.Text = "0"; //It fixed the bug when avoiding multiple decimal points.
+                    txtboxExpression.Text = operand + " " + operators;
                 }
                 else
                 {
                     operand = Convert.ToDouble(txtboxResult.Text);
-                    operators = operate.Text;
                     isOperatorPressed = true;
-                    txtboxExpression.Text = operand + " " + operators;
+                    operators = operate.Text;
                     txtboxResult.Text = "0";
+                    txtboxExpression.Text = operand + " " + operators;
                 }
             }
             else
@@ -144,7 +157,33 @@ namespace Calculator
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-         ////////////////////////////////////////////////////////////////
+            if (txtboxResult.Text.Equals("∅"))
+            {
+                return;
+            }
+            else
+            {
+                operand = Convert.ToDouble(txtboxResult.Text);
+                if (txtboxResult.Text.Equals("0"))
+                {
+                    txtboxResult.Text = "0";
+                    txtboxExpression.Text = "√0";
+                }
+                else if ((operand != 0) && (!isOperatorPressed))
+                {
+                    if (txtboxResult.Text.Contains("-"))
+                    {//because the square root of any negative number does not exist among the set of real numbers
+                        txtboxResult.Text = "does not exist"; 
+                    }
+                    else
+                    {
+                        txtboxResult.Text = Math.Sqrt(operand).ToString();
+                        txtboxExpression.Text = "√" + operand;
+                        sqrtOperand = Convert.ToDouble(txtboxResult.Text);
+                    }
+                }
+                isSqrtPressed = true;
+            }
         }
 
         private void btnPlusminus_Click(object sender, EventArgs e)
@@ -332,23 +371,23 @@ namespace Calculator
                 default:
                     break;
             }
-        }
-
-        private void squarerootSwitch()
+        }    
+        
+        private void sqrtSwitch()
         {
-            switch (squareroot)
-            {//To properly calculate square root depending on the chosen operator.
+            switch (operators)
+            {//To find which operaion to be used.
                 case "x":
-                    txtboxResult.Text = (sqrtOperand * (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                    txtboxResult.Text = (sqrtOperand * Math.Sqrt(operand)).ToString();
                     break;
                 case "÷":
-                    txtboxResult.Text = (sqrtOperand / (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                    txtboxResult.Text = (sqrtOperand / Math.Sqrt(operand)).ToString();
                     break;
                 case "+":
-                    txtboxResult.Text = (sqrtOperand + (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                    txtboxResult.Text = (sqrtOperand + Math.Sqrt(operand)).ToString();
                     break;
                 case "-":
-                    txtboxResult.Text = (sqrtOperand - (Math.Sqrt(Convert.ToDouble(txtboxResult.Text)))).ToString();
+                    txtboxResult.Text = (sqrtOperand - Math.Sqrt(operand)).ToString();
                     break;
                 default:
                     break;
