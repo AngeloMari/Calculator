@@ -66,9 +66,14 @@ namespace Calculator
             this.btnView = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.lstboxView = new System.Windows.Forms.CheckedListBox();
-            this.lstboxEdit = new System.Windows.Forms.CheckedListBox();
-            this.lstboxHelp = new System.Windows.Forms.CheckedListBox();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnFAQ = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnCut = new System.Windows.Forms.Button();
+            this.btnPaste = new System.Windows.Forms.Button();
+            this.btnLight = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -78,9 +83,9 @@ namespace Calculator
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(672, 0);
+            this.btnClose.Location = new System.Drawing.Point(673, -4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(28, 28);
+            this.btnClose.Size = new System.Drawing.Size(28, 27);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "x";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -437,7 +442,7 @@ namespace Calculator
             this.txtboxExpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxExpression.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxExpression.ForeColor = System.Drawing.Color.Silver;
-            this.txtboxExpression.Location = new System.Drawing.Point(54, 49);
+            this.txtboxExpression.Location = new System.Drawing.Point(54, 46);
             this.txtboxExpression.Multiline = true;
             this.txtboxExpression.Name = "txtboxExpression";
             this.txtboxExpression.ReadOnly = true;
@@ -609,53 +614,132 @@ namespace Calculator
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // lstboxView
+            // btnMaximize
             // 
-            this.lstboxView.BackColor = System.Drawing.Color.Gray;
-            this.lstboxView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstboxView.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstboxView.ForeColor = System.Drawing.Color.White;
-            this.lstboxView.FormattingEnabled = true;
-            this.lstboxView.Items.AddRange(new object[] {
-            "Light Mode"});
-            this.lstboxView.Location = new System.Drawing.Point(-1, 23);
-            this.lstboxView.Name = "lstboxView";
-            this.lstboxView.Size = new System.Drawing.Size(120, 17);
-            this.lstboxView.TabIndex = 40;
-            this.lstboxView.Visible = false;
+            this.btnMaximize.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMaximize.Enabled = false;
+            this.btnMaximize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMaximize.ForeColor = System.Drawing.Color.White;
+            this.btnMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMaximize.Location = new System.Drawing.Point(646, -4);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(28, 27);
+            this.btnMaximize.TabIndex = 44;
+            this.btnMaximize.Text = "❐";
+            this.btnMaximize.UseVisualStyleBackColor = false;
             // 
-            // lstboxEdit
+            // btnMinimize
             // 
-            this.lstboxEdit.BackColor = System.Drawing.Color.Gray;
-            this.lstboxEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstboxEdit.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstboxEdit.ForeColor = System.Drawing.Color.White;
-            this.lstboxEdit.FormattingEnabled = true;
-            this.lstboxEdit.Items.AddRange(new object[] {
-            "Copy",
-            "Cut",
-            "Paste"});
-            this.lstboxEdit.Location = new System.Drawing.Point(44, 23);
-            this.lstboxEdit.Name = "lstboxEdit";
-            this.lstboxEdit.Size = new System.Drawing.Size(120, 51);
-            this.lstboxEdit.TabIndex = 42;
-            this.lstboxEdit.Visible = false;
+            this.btnMinimize.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMinimize.Location = new System.Drawing.Point(619, -4);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(28, 27);
+            this.btnMinimize.TabIndex = 45;
+            this.btnMinimize.Text = "_";
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // lstboxHelp
+            // btnFAQ
             // 
-            this.lstboxHelp.BackColor = System.Drawing.Color.Gray;
-            this.lstboxHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstboxHelp.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstboxHelp.ForeColor = System.Drawing.Color.White;
-            this.lstboxHelp.FormattingEnabled = true;
-            this.lstboxHelp.Items.AddRange(new object[] {
-            "FAQ",
-            "About Calculator"});
-            this.lstboxHelp.Location = new System.Drawing.Point(93, 23);
-            this.lstboxHelp.Name = "lstboxHelp";
-            this.lstboxHelp.Size = new System.Drawing.Size(130, 34);
-            this.lstboxHelp.TabIndex = 43;
-            this.lstboxHelp.Visible = false;
+            this.btnFAQ.BackColor = System.Drawing.Color.Gray;
+            this.btnFAQ.FlatAppearance.BorderSize = 0;
+            this.btnFAQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFAQ.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFAQ.ForeColor = System.Drawing.Color.White;
+            this.btnFAQ.Location = new System.Drawing.Point(94, 41);
+            this.btnFAQ.Name = "btnFAQ";
+            this.btnFAQ.Size = new System.Drawing.Size(122, 23);
+            this.btnFAQ.TabIndex = 47;
+            this.btnFAQ.Text = "FAQ";
+            this.btnFAQ.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFAQ.UseVisualStyleBackColor = false;
+            this.btnFAQ.Visible = false;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.Color.Gray;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.Location = new System.Drawing.Point(94, 23);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(122, 20);
+            this.btnAbout.TabIndex = 48;
+            this.btnAbout.Text = "About Calculator";
+            this.btnAbout.UseVisualStyleBackColor = false;
+            this.btnAbout.Visible = false;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.BackColor = System.Drawing.Color.Gray;
+            this.btnCopy.FlatAppearance.BorderSize = 0;
+            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopy.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCopy.ForeColor = System.Drawing.Color.White;
+            this.btnCopy.Location = new System.Drawing.Point(44, 23);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(122, 24);
+            this.btnCopy.TabIndex = 49;
+            this.btnCopy.Text = "Copy";
+            this.btnCopy.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCopy.UseVisualStyleBackColor = false;
+            this.btnCopy.Visible = false;
+            // 
+            // btnCut
+            // 
+            this.btnCut.BackColor = System.Drawing.Color.Gray;
+            this.btnCut.FlatAppearance.BorderSize = 0;
+            this.btnCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCut.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCut.ForeColor = System.Drawing.Color.White;
+            this.btnCut.Location = new System.Drawing.Point(44, 43);
+            this.btnCut.Name = "btnCut";
+            this.btnCut.Size = new System.Drawing.Size(122, 24);
+            this.btnCut.TabIndex = 50;
+            this.btnCut.Text = "Cut";
+            this.btnCut.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCut.UseVisualStyleBackColor = false;
+            this.btnCut.Visible = false;
+            // 
+            // btnPaste
+            // 
+            this.btnPaste.BackColor = System.Drawing.Color.Gray;
+            this.btnPaste.FlatAppearance.BorderSize = 0;
+            this.btnPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaste.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPaste.ForeColor = System.Drawing.Color.White;
+            this.btnPaste.Location = new System.Drawing.Point(44, 63);
+            this.btnPaste.Name = "btnPaste";
+            this.btnPaste.Size = new System.Drawing.Size(122, 24);
+            this.btnPaste.TabIndex = 51;
+            this.btnPaste.Text = "Paste";
+            this.btnPaste.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnPaste.UseVisualStyleBackColor = false;
+            this.btnPaste.Visible = false;
+            // 
+            // btnLight
+            // 
+            this.btnLight.BackColor = System.Drawing.Color.Gray;
+            this.btnLight.FlatAppearance.BorderSize = 0;
+            this.btnLight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLight.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLight.ForeColor = System.Drawing.Color.White;
+            this.btnLight.Location = new System.Drawing.Point(-1, 23);
+            this.btnLight.Name = "btnLight";
+            this.btnLight.Size = new System.Drawing.Size(122, 24);
+            this.btnLight.TabIndex = 52;
+            this.btnLight.Text = "Light Mode";
+            this.btnLight.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnLight.UseVisualStyleBackColor = false;
+            this.btnLight.Visible = false;
             // 
             // Calculator
             // 
@@ -663,9 +747,14 @@ namespace Calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(700, 523);
-            this.Controls.Add(this.lstboxHelp);
-            this.Controls.Add(this.lstboxEdit);
-            this.Controls.Add(this.lstboxView);
+            this.Controls.Add(this.btnLight);
+            this.Controls.Add(this.btnPaste);
+            this.Controls.Add(this.btnCut);
+            this.Controls.Add(this.btnCopy);
+            this.Controls.Add(this.btnAbout);
+            this.Controls.Add(this.btnFAQ);
+            this.Controls.Add(this.btnMinimize);
+            this.Controls.Add(this.btnMaximize);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnView);
@@ -751,8 +840,13 @@ namespace Calculator
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.CheckedListBox lstboxView;
-        private System.Windows.Forms.CheckedListBox lstboxEdit;
-        private System.Windows.Forms.CheckedListBox lstboxHelp;
+        private System.Windows.Forms.Button btnMaximize;
+        private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Button btnFAQ;
+        private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnCut;
+        private System.Windows.Forms.Button btnPaste;
+        private System.Windows.Forms.Button btnLight;
     }
 }

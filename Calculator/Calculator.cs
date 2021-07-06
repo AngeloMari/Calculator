@@ -18,9 +18,11 @@ namespace Calculator
         String memory = "";
         bool isOperatorPressed = false;
         bool isSqrtPressed = false;
+        bool isEqualPressed = false;
         bool isViewPressed = false;
         bool isEditPressed = false;
         bool isHelpPressed = false;
+
         public Calculator()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace Calculator
         private void btnClose_Click(object sender, EventArgs e)
         {//To exit the application
             Application.Exit();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnNum_Click(object sender, EventArgs e)
@@ -96,7 +103,7 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text.Equals("∅"))
+            if ((txtboxResult.Text.Equals("∅")) || (isEqualPressed))
             {
                 return;
             }
@@ -110,12 +117,12 @@ namespace Calculator
                 {
                     sqrtSwitch();
                     isSqrtPressed = false; //it prevents the basic operation from being confused
-                    txtboxExpression.Text = sqrtOperand + " " + operators + " " + txtboxResult.Text;
+                    txtboxExpression.Text = sqrtOperand + " " + operators /*+ " " + txtboxResult.Text*/;
                 }
                 else
                 {
                     operatorsSwitch();
-                    txtboxExpression.Text = operand + " " + operators + " " + txtboxResult.Text;
+                    txtboxExpression.Text = operand + " " + operators /*+ " " + txtboxResult.Text*/;
                 }
                 operand = Convert.ToDouble(txtboxResult.Text);
                 operators = "";
@@ -314,12 +321,12 @@ namespace Calculator
         {
             if (isViewPressed)
             {
-                lstboxView.Visible = false;
+                btnLight.Visible = false;
                 isViewPressed = false;
             }
             else
             {
-                lstboxView.Visible = true;
+                btnLight.Visible = true;
                 isViewPressed = true;
             }
         }
@@ -328,12 +335,16 @@ namespace Calculator
         {
             if (isEditPressed)
             {
-                lstboxEdit.Visible = false;
+                btnCut.Visible = false;
+                btnCopy.Visible = false;
+                btnPaste.Visible = false;
                 isEditPressed = false;
             }
             else
             {
-                lstboxEdit.Visible = true;
+                btnCut.Visible = true;
+                btnCopy.Visible = true;
+                btnPaste.Visible = true;
                 isEditPressed = true;
             }
         }
@@ -342,12 +353,14 @@ namespace Calculator
         {
             if (isHelpPressed)
             {
-                lstboxHelp.Visible = false;
+                btnFAQ.Visible = false;
+                btnAbout.Visible = false;
                 isHelpPressed = false;
             }
             else
             {
-                lstboxHelp.Visible = true;
+                btnFAQ.Visible = true;
+                btnAbout.Visible = true;
                 isHelpPressed = true;
             }
         }
