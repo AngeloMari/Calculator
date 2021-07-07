@@ -119,8 +119,13 @@ namespace Calculator
                 }
                 else
                 {
-                    txtboxExpression.Text = operand + " " + operators;
                     operatorsSwitch();
+                    txtboxExpression.Text = "";
+                }
+
+                if (txtboxResult.Text.Equals("-0"))
+                {//because there is no negative zero
+                    txtboxResult.Text = "0";
                 }
                 operand = Convert.ToDouble(txtboxResult.Text);
                 operators = "";
@@ -146,7 +151,7 @@ namespace Calculator
                 }
                 else
                 {
-                    operand = Convert.ToDouble(txtboxResult.Text);
+                    operand = Convert.ToDouble(txtboxResult.Text); //to avoid operand from always being zero
                     isOperatorPressed = true;
                     operators = operate.Text;
                     txtboxResult.Text = "0";
