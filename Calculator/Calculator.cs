@@ -14,7 +14,7 @@ namespace Calculator
     {
         Equals clsEqual = new();
         AdvancedOperators clsAdvOperator = new();
-        String memory = "";
+        Memory clsMemory = new();
         bool menuHider = false;
 
         public Calculator()
@@ -184,65 +184,15 @@ namespace Calculator
         private void btnM_Click(object sender, EventArgs e)
         {
             Button M = (Button)sender;
-            memory = M.Text;
+            clsMemory.m = M.Text;
 
-            switch (memory)
-            {
-                case "MC": //for memory clear
-                    txtboxM.Text = "";
-                    break;
-                case "MR": //to recall the saved number from memory save
-                    if (txtboxMemory.Text.Equals("0"))
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxResult.Text = txtboxMemory.Text;
-                    }
-                    break;
-                case "MS": //to save the number from txtboxResult
-                    if (txtboxResult.Text.Equals("∅"))
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        if (txtboxResult.Text.Equals("0"))
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            txtboxM.Text = "M";
-                            txtboxMemory.Text = txtboxResult.Text;
-                        }
-                    }
-                    break;
-                case "M+": //to add a number to the saved number.
-                    if (txtboxResult.Text.Equals("∅"))
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) + Convert.ToDouble(txtboxResult.Text)).ToString();
-                    }
-                    break;
-                case "M-": //to subtract a number to the saved number
-                    if (txtboxResult.Text.Equals("∅"))
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        txtboxM.Text = "M";
-                        txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    }
-                    break;
-            }
+            clsMemory.txtboxM = txtboxM.Text;
+            clsMemory.txtboxMemory = txtboxMemory.Text;
+            clsMemory.txtboxResult = txtboxResult.Text;
+            clsMemory.memoryBtns();
+            txtboxM.Text = clsMemory.txtboxM;
+            txtboxMemory.Text = clsMemory.txtboxMemory;
+            txtboxResult.Text = clsMemory.txtboxResult;
         }
 
         private void btnView_Click(object sender, EventArgs e)
