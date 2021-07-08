@@ -33,7 +33,6 @@ namespace Calculator
                 {
                     sqrtSwitch();
                     isSqrtPressed = false; //it avoids confusion for the basic operations
-                    txtboxExpression = sqrtOperand + " " + operators + " √" + operand;
                 }
                 else
                 {
@@ -72,7 +71,7 @@ namespace Calculator
         }
 
         private void sqrtSwitch()
-        {
+        {//to be able to perform basic operations for both square root of a number (sqrt <operator> sqrt)
             switch (operators)
             {
                 case "x":
@@ -91,6 +90,5 @@ namespace Calculator
                     break;
             }
         }
-
     }
 }

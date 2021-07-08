@@ -13,6 +13,7 @@ namespace Calculator
     public partial class Calculator : Form
     {
         Equals clsEqual = new();
+        AdvancedOperators clsAdvOperator = new();
         String memory = "";
         bool menuHider = false;
 
@@ -50,12 +51,11 @@ namespace Calculator
             }
             else if ((txtboxResult.Text.Equals("∅")) || (clsEqual.isOperatorPressed))
             {
-                txtboxResult.Clear();
+                txtboxResult.Clear(); //to be able to add decimal point even the zero is not clicked
                 if (!txtboxResult.Text.Contains(".")) //to add a the first decimal button for numbers < 1
                 {
                     if (txtboxResult.Text.Equals(""))
                     {
-                        txtboxResult.Clear();
                         txtboxResult.Text = "0" + "." + txtboxResult.Text;
                     }
                 }
@@ -138,57 +138,20 @@ namespace Calculator
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            if (txtboxResult.Text.Equals("∅"))
-            {
-                return;
-            }
-            else
-            {
-                clsEqual.operand = Convert.ToDouble(txtboxResult.Text);
-                if (txtboxResult.Text.Equals("0"))
-                {
-                    txtboxResult.Text = "0";
-                    txtboxExpression.Text = "√0";
-                }
-                else if ((clsEqual.operand != 0) && (!clsEqual.isOperatorPressed))
-                {
-                    if (txtboxResult.Text.Contains("-"))
-                    {//because the square root of any negative number does not exist among the set of real numbers
-                        txtboxResult.Text = "does not exist"; 
-                    }
-                    else
-                    {
-                        txtboxResult.Text = Math.Sqrt(clsEqual.operand).ToString();
-                        clsEqual.sqrtOperand = Convert.ToDouble(txtboxResult.Text);
-                        txtboxExpression.Text = "√" + clsEqual.operand;
-                    }
-                }
-                clsEqual.isSqrtPressed = true;
-            }
+            clsAdvOperator.txtboxResult = txtboxResult.Text;
+            clsAdvOperator.txtboxExpression = txtboxExpression.Text;
+            clsAdvOperator.oprtrSqrt();
+            txtboxResult.Text = clsAdvOperator.txtboxResult;
+            txtboxExpression.Text = clsAdvOperator.txtboxExpression;
         }
 
         private void btnPlusminus_Click(object sender, EventArgs e)
-        {//to change the number either to postivie or negative
-            if (txtboxResult.Text.Equals("∅"))
-            {
-                return;
-            }
-            if (txtboxResult.Text != "0")
-            {
-                if (txtboxResult.Text.Contains("-"))
-                {//bringing back to positive
-                    txtboxResult.Text = txtboxResult.Text.Trim('-');
-                }
-                else
-                {//changing to negative
-                    txtboxResult.Text = (Convert.ToDouble(txtboxResult.Text) * -1).ToString();
-                }
-                txtboxExpression.Text = txtboxResult.Text;
-            }
-            else
-            {
-                return;
-            }
+        {
+            clsAdvOperator.txtboxResult = txtboxResult.Text;
+            clsAdvOperator.txtboxExpression = txtboxExpression.Text;
+            clsAdvOperator.oprtrPlusminus();
+            txtboxResult.Text = clsAdvOperator.txtboxResult;
+            txtboxExpression.Text = clsAdvOperator.txtboxExpression;
         }
 
         private void btnPercent_Click(object sender, EventArgs e)
@@ -205,26 +168,17 @@ namespace Calculator
             else
             {//gets the percentage and perform specific operation
                 txtboxResult.Text = (clsEqual.operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
-                txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators + "" + txtboxResult.Text + "%";
+                txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators + "" + txtboxResult.Text + " %";
             }
         }
 
         private void btn1x_Click(object sender, EventArgs e)
-        {//to reciprocate a number
-            if (txtboxResult.Text.Equals("∅"))
-            {
-                return;
-            }
-            else if (txtboxResult.Text.Equals("0"))
-            {//any number cannot be divided by zero
-                txtboxResult.Text = "Cannot divide by zero";
-                txtboxExpression.Text = "reciproc(0)";
-            }
-            else
-            {
-                txtboxExpression.Text = "reciproc(" + txtboxResult.Text + ")";
-                txtboxResult.Text = (1 / Convert.ToDouble(txtboxResult.Text)).ToString();
-            }
+        {
+            clsAdvOperator.txtboxResult = txtboxResult.Text;
+            clsAdvOperator.txtboxExpression = txtboxExpression.Text;
+            clsAdvOperator.oprtr1x();
+            txtboxResult.Text = clsAdvOperator.txtboxResult;
+            txtboxExpression.Text = clsAdvOperator.txtboxExpression;
         }
 
         private void btnM_Click(object sender, EventArgs e)
