@@ -12,13 +12,8 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
-        Double operand = 0;
-        Double sqrtOperand = 0;
-        String operators = "";
+        Equals clsEqual = new();
         String memory = "";
-        bool isOperatorPressed = false;
-        bool isSqrtPressed = false;
-        bool isEqualPressed = false;
         bool menuHider = false;
 
         public Calculator()
@@ -38,13 +33,13 @@ namespace Calculator
 
         private void btnNum_Click(object sender, EventArgs e)
         {//To display what number was pressed
-            if ((txtboxResult.Text.Equals("∅")) || (txtboxResult.Text.Equals("0")) || (isOperatorPressed))
+            if ((txtboxResult.Text.Equals("∅")) || (txtboxResult.Text.Equals("0")) || (clsEqual.isOperatorPressed))
             {
                 txtboxResult.Clear();
             }
             Button number = (Button)sender;
             txtboxResult.Text += number.Text;
-            isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.
+            clsEqual.isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
@@ -53,7 +48,7 @@ namespace Calculator
             {
                 return; //to avoid exception error
             }
-            else if ((txtboxResult.Text.Equals("∅")) || (isOperatorPressed))
+            else if ((txtboxResult.Text.Equals("∅")) || (clsEqual.isOperatorPressed))
             {
                 txtboxResult.Clear();
                 if (!txtboxResult.Text.Contains(".")) //to add a the first decimal button for numbers < 1
@@ -69,13 +64,13 @@ namespace Calculator
             {
                 txtboxResult.Text += ".";
             }
-            isOperatorPressed = false;
+            clsEqual.isOperatorPressed = false;
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {//To clear the text box
             txtboxResult.Text = "∅";
-            operand = 0;
+            clsEqual.operand = 0;
             txtboxExpression.Clear();
         }
 
@@ -101,35 +96,11 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if ((txtboxResult.Text.Equals("∅")) || (isEqualPressed))
-            {
-                return;
-            }
-            else if ((operators.Equals("÷")) && (txtboxResult.Text.Equals("0")))
-            {//because infinity is not a number, and it should not be the answer
-                txtboxResult.Text = "undefined";
-            }
-            else
-            {
-                if (isSqrtPressed)
-                {
-                    sqrtSwitch();
-                    isSqrtPressed = false; //it avoids confusion for the basic operations
-                    txtboxExpression.Text = sqrtOperand + " " + operators + " √" + operand;
-                }
-                else
-                {
-                    operatorsSwitch();
-                    txtboxExpression.Text = "";
-                }
-
-                if (txtboxResult.Text.Equals("-0"))
-                {//because there is no negative zero
-                    txtboxResult.Text = "0";
-                }
-                operand = Convert.ToDouble(txtboxResult.Text);
-                operators = "";
-            }
+            clsEqual.txtboxResult = txtboxResult.Text;
+            clsEqual.txtboxExpression = txtboxExpression.Text;
+            clsEqual.equalSign();
+            txtboxResult.Text = clsEqual.txtboxResult;
+            txtboxExpression.Text = clsEqual.txtboxExpression;
         }
 
         private void btnOperators_Click(object sender, EventArgs e)
@@ -139,29 +110,29 @@ namespace Calculator
             {
                 return;
             }
-            else if (!isOperatorPressed)
+            else if (!clsEqual.isOperatorPressed)
             {
-                if (operand != 0)
+                if (clsEqual.operand != 0)
                 {
                     btnEquals.PerformClick(); //It helps in appending new operand instead of clicking equal button every time.
-                    isOperatorPressed = true;
-                    operators = operate.Text;
+                    clsEqual.isOperatorPressed = true;
+                    clsEqual.operators = operate.Text;
                     txtboxResult.Text = "0"; //It fixed the bug when avoiding multiple decimal points.
-                    txtboxExpression.Text = operand + " " + operators;
+                    txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators;
                 }
                 else
                 {
-                    operand = Convert.ToDouble(txtboxResult.Text); //to avoid operand from always being zero
-                    isOperatorPressed = true;
-                    operators = operate.Text;
+                    clsEqual.operand = Convert.ToDouble(txtboxResult.Text); //to avoid operand from always being zero
+                    clsEqual.isOperatorPressed = true;
+                    clsEqual.operators = operate.Text;
                     txtboxResult.Text = "0";
-                    txtboxExpression.Text = operand + " " + operators;
+                    txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators;
                 }
             }
             else
             {//It allows the user to change the operator without having any errors.
-                operators = operate.Text;
-                txtboxExpression.Text = operand + " " + operators;
+                clsEqual.operators = operate.Text;
+                txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators;
             }
         }
 
@@ -173,13 +144,13 @@ namespace Calculator
             }
             else
             {
-                operand = Convert.ToDouble(txtboxResult.Text);
+                clsEqual.operand = Convert.ToDouble(txtboxResult.Text);
                 if (txtboxResult.Text.Equals("0"))
                 {
                     txtboxResult.Text = "0";
                     txtboxExpression.Text = "√0";
                 }
-                else if ((operand != 0) && (!isOperatorPressed))
+                else if ((clsEqual.operand != 0) && (!clsEqual.isOperatorPressed))
                 {
                     if (txtboxResult.Text.Contains("-"))
                     {//because the square root of any negative number does not exist among the set of real numbers
@@ -187,12 +158,12 @@ namespace Calculator
                     }
                     else
                     {
-                        txtboxResult.Text = Math.Sqrt(operand).ToString();
-                        sqrtOperand = Convert.ToDouble(txtboxResult.Text);
-                        txtboxExpression.Text = "√" + operand;
+                        txtboxResult.Text = Math.Sqrt(clsEqual.operand).ToString();
+                        clsEqual.sqrtOperand = Convert.ToDouble(txtboxResult.Text);
+                        txtboxExpression.Text = "√" + clsEqual.operand;
                     }
                 }
-                isSqrtPressed = true;
+                clsEqual.isSqrtPressed = true;
             }
         }
 
@@ -226,15 +197,15 @@ namespace Calculator
             {
                 return;
             }
-            else if (operators.Equals(""))
+            else if (clsEqual.operators.Equals(""))
             {//the answer should always be zero until the user choose an operator and another number.
                 txtboxResult.Text = "0";
                 txtboxExpression.Text = txtboxResult.Text;
             }
             else
             {//gets the percentage and perform specific operation
-                txtboxResult.Text = (operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
-                txtboxExpression.Text = operand + " " + operators + "" + txtboxResult.Text + "%";
+                txtboxResult.Text = (clsEqual.operand * (Convert.ToDouble(txtboxResult.Text) * 0.01)).ToString();
+                txtboxExpression.Text = clsEqual.operand + " " + clsEqual.operators + "" + txtboxResult.Text + "%";
             }
         }
 
@@ -316,48 +287,6 @@ namespace Calculator
                         txtboxM.Text = "M";
                         txtboxMemory.Text = (Convert.ToDouble(txtboxMemory.Text) - Convert.ToDouble(txtboxResult.Text)).ToString();
                     }
-                    break;
-            }
-        }
-
-        private void operatorsSwitch()
-        {
-            switch (operators)
-            {//To find which operaion to be used.
-                case "x":
-                    txtboxResult.Text = (operand * Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (operand / Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (operand + Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (operand - Convert.ToDouble(txtboxResult.Text)).ToString();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void sqrtSwitch()
-        {
-            switch (operators)
-            {
-                case "x":
-                    txtboxResult.Text = (sqrtOperand * Math.Sqrt(operand)).ToString();
-                    break;
-                case "÷":
-                    txtboxResult.Text = (sqrtOperand / Math.Sqrt(operand)).ToString();
-                    break;
-                case "+":
-                    txtboxResult.Text = (sqrtOperand + Math.Sqrt(operand)).ToString();
-                    break;
-                case "-":
-                    txtboxResult.Text = (sqrtOperand - Math.Sqrt(operand)).ToString();
-                    break;
-                default:
                     break;
             }
         }
