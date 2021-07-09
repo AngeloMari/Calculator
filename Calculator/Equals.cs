@@ -89,6 +89,11 @@ namespace Calculator
                 default:
                     break;
             }
+
+            if (txtboxResult.Length >= 18)
+            {//to round the result up to 17 characters
+                txtboxResult = Math.Round(Convert.ToDouble(txtboxResult), 15, MidpointRounding.AwayFromZero).ToString();
+            }
         }
     }
 }

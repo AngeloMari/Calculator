@@ -38,6 +38,14 @@ namespace Calculator
             {
                 txtboxResult.Clear();
             }
+            else if ((!txtboxResult.Text.Contains(".")) && (txtboxResult.Text.Length == 16))
+            {//just like the windows calculator, the maximum number of characters for whole number is 16
+                return;
+            }
+            else if ((txtboxResult.Text.Contains(".")) && (txtboxResult.Text.Length == 17))
+            {//while the maximum number of characters (for decimal number including ".") is 17
+                return;
+            }
             Button number = (Button)sender;
             txtboxResult.Text += number.Text;
             clsEqual.isOperatorPressed = false;  // Fixed the bug in appending more digits to the second operand.

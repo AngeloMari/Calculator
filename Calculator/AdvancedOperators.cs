@@ -51,7 +51,7 @@ namespace Calculator
         public void oprtrPlusminus()
         {//to change the number either to postivie or negative
             isPlusminusPressed = true;
-            if (txtboxResult.Equals("∅"))
+            if ((txtboxResult.Equals("∅")) || (txtboxResult.Equals(".0")))
             {
                 return;
             }
@@ -63,6 +63,26 @@ namespace Calculator
                 }
                 else
                 {//changing to negative
+                    if (txtboxResult.Contains("."))
+                    {//to avoid having "-" as a result when the number of digits exceed.
+                        if (txtboxResult.Length >= 18)
+                        {
+                            txtboxResult = Math.Round(Convert.ToDouble(txtboxResult), 15, MidpointRounding.AwayFromZero).ToString();
+                        }
+                    }
+                    else if (!txtboxResult.Contains("."))
+                    {//limiting whole number result to 16 characters
+                        string round = txtboxResult;
+
+                        if (round.Length == 18)
+                        {
+                            _ = round.Substring(0, round.Length - 2);
+                        }
+                        else if (round.Length == 17)
+                        {
+                            _ = round.Substring(0, round.Length - 1);
+                        }
+                    }
                     txtboxResult = (Convert.ToDouble(txtboxResult) * -1).ToString();
                 }
                 txtboxExpression = txtboxResult;
@@ -94,6 +114,27 @@ namespace Calculator
             {
                 txtboxExpression = "reciproc(" + txtboxResult + ")";
                 txtboxResult = (1 / Convert.ToDouble(txtboxResult)).ToString();
+            }
+
+            if (txtboxResult.Contains("."))
+            {
+                if (txtboxResult.Length >= 18)
+                {
+                    txtboxResult = Math.Round(Convert.ToDouble(txtboxResult), 15, MidpointRounding.AwayFromZero).ToString();
+                }                                                           //there will be an exception when exceeding 15
+            }
+            else if (!txtboxResult.Contains("."))
+            {
+                string round = txtboxResult;
+
+                if (round.Length == 18)
+                {
+                    _ = round.Substring(0, round.Length - 2);
+                }
+                else if (round.Length == 17)
+                {
+                    _ = round.Substring(0, round.Length - 1);
+                }
             }
         }
     }
