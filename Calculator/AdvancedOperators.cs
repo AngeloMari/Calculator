@@ -8,6 +8,8 @@ namespace Calculator
 {
     class AdvancedOperators : Equals
     {
+        bool isPlusminusPressed = false; //to be able to compute negative reciprocals
+
         public void oprtrSqrt()
         {
             if (txtboxResult.Equals("∅"))
@@ -48,6 +50,7 @@ namespace Calculator
 
         public void oprtrPlusminus()
         {//to change the number either to postivie or negative
+            isPlusminusPressed = true;
             if (txtboxResult.Equals("∅"))
             {
                 return;
@@ -68,6 +71,7 @@ namespace Calculator
             {
                 return;
             }
+            isPlusminusPressed = false;
         }
 
         public void oprtr1x()
@@ -80,6 +84,11 @@ namespace Calculator
             {//any number cannot be divided by zero
                 txtboxResult = "Cannot divide by zero";
                 txtboxExpression = "reciproc(0)";
+            }
+            else if (isPlusminusPressed)
+            {
+                txtboxExpression = "reciproc(" + txtboxResult + ")";
+                txtboxResult = ((1 / Convert.ToDouble(txtboxResult)) * (-1)).ToString();
             }
             else
             {

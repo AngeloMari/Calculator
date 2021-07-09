@@ -9,8 +9,8 @@ namespace Calculator
     class Memory : Equals
     {
         public String m = "";
-        public string txtboxM = "";
-        public string txtboxMemory = "";
+        public string txtboxM = "";         //txtboxM and txtboxMemory are hidden text boxes in the calculator design
+        public string txtboxMemory = "";    //it can be found by highlighting above MC and C buttons
 
         public void memoryBtns()
         {
@@ -33,8 +33,8 @@ namespace Calculator
                         }
                         else
                         {
-                            txtboxM = "M";                  //txtboxM and txtboxMemory are hidden text boxes in the calculator design.
-                            txtboxMemory = txtboxResult;    //it can be found by highlighting above MC and C buttons
+                            txtboxM = "M";                  
+                            txtboxMemory = txtboxResult;   //storing the number from txtboxResult to txtboxMemory
                         }
                     }
                     break;

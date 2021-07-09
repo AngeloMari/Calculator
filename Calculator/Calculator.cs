@@ -94,7 +94,7 @@ namespace Calculator
             txtboxResult.Text = del;
         }
 
-        private void btnEquals_Click(object sender, EventArgs e)
+        public void btnEquals_Click(object sender, EventArgs e)
         {
             clsEqual.txtboxResult = txtboxResult.Text;
             clsEqual.txtboxExpression = txtboxExpression.Text;
@@ -399,6 +399,7 @@ namespace Calculator
             btnAdd.BackColor = Color.FromArgb(232, 150, 17);
             btnDivide.BackColor = Color.FromArgb(227, 108, 20);
             btnSubtract.BackColor = Color.FromArgb(227, 108, 20);
+            btnEquals.BackColor = Color.FromArgb(227, 108, 20);
             btnC.BackColor = Color.FromArgb(28, 78, 170);
             btnCe.BackColor = Color.FromArgb(47, 45, 146);
             btnDel.BackColor = Color.FromArgb(28, 78, 170);
